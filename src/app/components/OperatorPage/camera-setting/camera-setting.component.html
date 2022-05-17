@@ -1,0 +1,150 @@
+<div id="MainContainer" *ngIf="theCamera != null || undefined">
+    <div id="BackContainer">
+        <p (click)="goBack()" id="back">Go Back To Previous Page</p>
+    </div>
+
+    <div (click)="closeMessage()" id="messageContainer" *ngIf='messageOK != "" || messageERR != ""'>
+        <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+        <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+    </div>
+
+    <div class="cameraTopContainer">
+        <h3 id="cameraNameLabel" class="mustFill">Camera Name</h3>
+        <input id="cameraName" (keyup)="preventEmptyInputSave()" value={{theCamera?.cameraName}} placeholder="Camera Name - Required" required>
+        <div id="nameLine"></div>
+        <h3 id="cameraDescriptionLabel" >Camera Description</h3>
+        <textarea id="cameraDesc" (keyup)="preventEmptyInputSave()" value={{theCamera?.cameraDescription}} placeholder="Camera Description"></textarea>
+        <h3 class="label">Camera Code</h3>
+        <div id="codeContainer">
+            <input type="text" id="cameraCode" value={{theCamera?.cameraCode}} readonly required>
+            <img (click)="copy()"  id="copyIcon" src="../../../../assets/Images/copyIcon.png" alt="Copy Icon">
+            <img (click)="refreshCode()"  id="refreshIcon" src="../../../../assets/Images/refreshIcon.png" alt="Refresh Icon">
+        </div>
+        <h3 class="label">Camera Operation</h3>
+        <div *ngIf="theCamera?.operationStatus == 1; else no" class="toggle-radio" >
+            <input type="radio" name="rdo" id="Online" checked>
+            <input type="radio" name="rdo" id="Offline">
+            <div class="switch" (click)="toggleCameraOpStatus()">
+                <label for="Online">Yes</label>
+                <span></span>
+                <label for="Offline">No</label>
+            </div>
+        </div>
+        <ng-template #no>
+            <div class="toggle-radio" >
+                <input type="radio" name="rdo" id="Online">
+                <input type="radio" name="rdo" id="Offline" checked>
+                <div class="switch" (click)="toggleCameraOpStatus()">
+                    <label for="Online">Yes</label>
+                    <span></span>
+                    <label for="Offline">No</label>
+                </div>
+                </div>
+        </ng-template>
+
+        <div id="buttonContainer">
+            <div (click)="saveCamera()" class="saveContainer disabledButton">
+                <div class="saveWP disabledWP">
+                    <img id="saveIcon" src="../../../../assets/Images/saveIcon2.png" alt="Save Icon">
+                </div>
+                <h3 id="saveLabel">Save</h3>
+            </div>
+            <div (click)="showDeleteAlert()"  class="removeContainer disabledButton">
+                <div class="removeWP disabledWP">
+                    <img id="removeIcon" src="../../../../assets/Images/removeIcon.png" alt="Remove Icon">
+                </div>
+                <h3 class="counter">{{count}}</h3>
+                <h3 id="removeLabel">Remove</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="PointMainContainer">
+        <div class="theToggler" (click)="showEditSpace()">
+            <h3 class="theTogglerLabel">Press to Show Point Edit Space</h3>
+        </div>
+        <div class="EditorContainer">
+            <div (click)="closeMessageED()" id="messageContainerED" *ngIf='messageOKED != "" || messageERRED != ""'>
+                <h3 *ngIf='messageOKED != ""' id="messageOKED">{{messageOKED}}</h3>
+                <h3 *ngIf='messageERRED != ""' id="messageERRED">{{messageERRED}}</h3>
+            </div>
+            <div class="editor">     
+                <div id="editorTop">
+                    <div id="LeftEditor">
+                        <div class="leftEdit green green2" (click)="leftEditActivate(0)">
+                            <img class="bg" id="greenPencil" src="../../../../assets/Images/LineGreen.png" alt="Entrance Pencil Icon">
+                            <h3 class="editorLabel" id="label3">Entrance Line</h3>
+                        </div>
+                        <div class="leftEdit red red2" (click)="leftEditActivate(1)">
+                            <img class="bg" id="redPencil" src="../../../../assets/Images/LineRed.png" alt="Exit Pencil Icon">
+                            <h3 class="editorLabel" id="label4">Exit Line</h3>
+                        </div>
+                        <div (click)="clearMark()" class="leftEdit clearContainer">
+                            <h3 id="clearLabel">Clear</h3>    
+                        </div>
+                    </div>
+                    
+                    <div id="RightEditor">
+                        <div id="rightTop">
+                            <div class="rightEdit1 showMarks right1Active" (click)="rightEdit1Activate(0)">
+                                <h3 class="markLabel label6 rightLabelActive">Show Marks</h3>
+                            </div>
+                            <div class="rightEdit1 hideMarks" (click)="rightEdit1Activate(1)">
+                                <h3 class="markLabel label7">Hide Marks</h3>
+                            </div>
+                        </div>
+                        <div id="rightBot">
+                            <div class="rightEdit2 showBackground right2Active" (click)="rightEdit2Activate(0)">
+                                <h3 class="markLabel label8 rightLabelActive">Show Background</h3>
+                            </div>
+                            <div class="rightEdit2 hideBackground" (click)="rightEdit2Activate(1)">
+                                <h3 class="markLabel label9">Hide Background</h3>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div id="MiddleEditor">
+                    <img class="theStreamClassActive" id="theStream" src="../../../../assets/Images/NoStream.png" alt="Stream Image from the Camera">
+                    <canvas class="canvasDisabled"></canvas>
+                </div>
+                <div id="editorBot">
+                    <div (click)="saveMark()" class="saveContainer2">
+                        <div class="saveWP2">
+                            <img id="saveIcon2" src="../../../../assets/Images/saveIcon.png" alt="Save Icon">
+                        </div>
+                        <h3 id="saveLabel2">Save</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Delete Surveillance POP UP -->
+    <div (click)="turnOffDelete()" class="DelPopUpBG"></div>
+    <div class="DelPopUpContainer">
+        <div id="titleContainer">
+            <h3 id="title" (click)="turnOffDelete()"></h3>
+        </div>
+        <div id="messageContainer" (click)="closeMessageDel()" *ngIf='messageERRDEL != ""'>
+            <h3 *ngIf='messageERRDEL != ""' id="messageERRDEL">{{messageERRDEL}}</h3>
+        </div>
+        <div id="middleContainer">
+            <h3 id="description">Are you sure to delete this Camera?</h3>            
+        </div>
+        <div id="bottomContainer">
+            <div id="deleteConfirmContainer" (click)="Delete()" (mouseenter)="DeleteIcon(true)" (mouseleave)="DeleteIcon(false)">
+                <div id="deleteConfirmIconBG">
+                    <img id="deleteConfirmIcon" src="../../../../assets/Images/removeIcon1.png" alt="Remove Icon">
+                </div>
+                <h3 id="deleteConfirmLabel">Confirm</h3>
+            </div>
+            <div id="deleteCancelContainer" (click)="turnOffDelete()">
+                <h3 id="deleteCancelLabel"></h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

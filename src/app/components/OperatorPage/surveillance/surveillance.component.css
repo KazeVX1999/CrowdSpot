@@ -1,0 +1,583 @@
+#MainContainer{
+    background-color: #363434;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 40%);
+    min-height: 90vh;
+    height: auto;
+}
+
+.TopContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    margin: 0 35px 20px 30px;
+    align-items: flex-end;
+    border-bottom: 3px solid grey;
+    width: 95%;
+} 
+
+.TopContainerActive{
+    display: none;
+}
+
+#AddContainer{
+    transform: scale(0.7);
+}
+
+#AddLabel{
+    background-image: linear-gradient(
+        to bottom right,
+        #913434 0%, #cf5f5f 50%, #8f3939 100%
+    );
+    box-shadow: rgb(94, 91, 91) 0 0 3px 3px;
+    border-radius: 100px;
+    transition: .3s all;
+    padding: 10px 20px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    cursor: pointer;
+}
+
+#AddLabel:hover{
+    box-shadow: rgb(207, 165, 165) 0 0 6px 6px;
+}
+
+#Add{
+    text-align: center;
+    transition: .3s all;
+    margin: 0 auto;
+}
+
+#Add::after{
+    content: 'ADD NEW LOCATION';
+    margin: 0 0 0 10px;
+    transition: .3s all;
+    background: linear-gradient( to top left, #ffd5d5 0%, #ffffff 50%, #f7c8c8 100% );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip : text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    transition: .3s all;
+    opacity: 1;
+}
+
+#AddLabel:hover #Add::after{
+    opacity: 0;
+}
+
+#Add::before{
+    content: '\002B';
+    margin: 0 auto;
+    transition: .3s all;
+    background: linear-gradient( to top left, #ffd5d5 0%, #ffffff 50%, #f7c8c8 100% );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    transition: .3s all;
+    position: relative;
+    left: 0;
+
+}
+
+#AddLabel:hover #Add::before{
+    left: 50%;
+    text-shadow: 0 0 3px whitesmoke;
+}
+
+.AddPopUpBG{
+    display: none;
+    position: absolute;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, 0);
+    background-color: rgb(50 47 47 / 90%);
+    top: calc(10vh + 20px);
+}
+
+.AddPopUpBGActive{
+    display: flex;
+}
+
+.AddPopUpContainer{
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(224, 190, 190, 0.9) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(241, 213, 217, 0.9) 100% 
+    );
+    box-shadow: rgb(187, 154, 154) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    padding: 10px;
+    width: 50%;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+}
+
+.AddPopUpContainerActive{
+    display: flex;
+}
+
+#topAdd{
+    border-bottom: 3px solid #d5c2c2;
+    width: 90%;
+}
+
+#labelAdd{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    transition: .3s all;
+    cursor: pointer;
+}
+
+#labelAdd::after{
+    content: "ADD NEW LOCATION \292C";
+    transition: .3s all;
+}
+
+#labelAdd:hover::after{
+    content: "CLOSE \292C";
+    color: rgb(255, 255, 255);
+    text-shadow: #ca8080 0 0 5px;
+    transition: .3s all;
+}
+
+.label{
+    color: black;
+    font-size: 15px;    
+    text-align: center;
+    margin: 20px auto 5px auto;
+}
+
+#locationName, #locationDescription{
+    padding: 5px;
+    border: 0;
+    width: 80%;
+    box-shadow: #757070 0 0 5px;
+    transition: .3s all;
+    font-family: 'Arial Nova';
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;    
+}
+
+#locationName{
+    border-radius: 5px;
+}
+
+#locationDescription{
+    border-radius: 5px 5px 0 5px;
+}
+
+#locationName:hover, #locationDescription:hover{
+    box-shadow: #9e4343 0 0 8px;
+}
+
+#locationName::placeholder, #locationDescription::placeholder{
+    background: linear-gradient(
+        to top left,
+        #5e5b5b 0%,
+        #7a7777 50%,
+        #302b2b 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    transition: .3s ease-in-out;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+    animation: movingGradient 3s alternate-reverse infinite;
+}
+
+#formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    padding-bottom: 10px;
+    width: 90%;
+}
+
+#buttonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px solid #d5c2c2;
+    padding-top: 10px;
+    width: 90%;
+}
+
+.buttonAdd{
+    border-radius: 100px;
+    background-color: #d68b8b;
+    color:rgb(110, 97, 97);
+    transition: .3s all;
+    cursor: pointer;
+    box-shadow: #5e5b5b 0 0 10px;
+    text-align: center;
+    padding: 5px 10px;
+    width: 40%;
+}
+
+.buttonAdd:hover{
+    background-color: #bb4a4a;
+    color: white;
+    box-shadow: #be5757 0 0 6px;
+    text-shadow: #ff8686 0 0 10px;
+}
+
+.disabled{
+    background-color: #757575;
+    pointer-events: none;
+    cursor: default;
+}
+
+#requiredLocationName::before{
+    font-weight: lighter;
+    content: '\002A';
+    margin: 0 5px 0 0;
+    background: linear-gradient(
+        to top left,
+        #ac2222 0%,
+        #943d3d 50%,
+        #915b5b 100%
+    );
+    font-size: 15px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+#messageSpace{
+    display: flex;
+    margin: 0 35px;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+}
+
+#messageContainer{
+    text-align: center;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    width: 90%;
+    margin: 20px auto 20px auto;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+#messageContainer:hover{
+    opacity: 0.7;
+}
+
+#messageERR, #messagERRADD{
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    word-break: break-all;
+}
+
+#messageOK, #messageOKADD{
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #2b9e14 0%,
+        #3ae951 50%,
+        #067a23 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    word-break: break-all;
+    margin: 0 auto;
+}
+
+#emptyLocationContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 20px;
+}
+
+#emptyBG{
+    background-image: linear-gradient( to bottom right, rgba(185, 184, 184, 0.9) 0%, rgba(247, 247, 247, 0.9) 50%, rgba(207, 198, 198, 0.9) 100% );
+    border-radius: 10px;
+    color: transparent;
+    box-shadow: 0 0 5px 5px #b96666;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    padding: 5px 20px;
+}
+
+#emptyLabel{
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(
+        to top left,
+        #8d3c3c 0%,
+        #da7676 50%,
+        #974747 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+
+}
+
+
+#surveillanceMainContainer{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: center;
+    width: 95%;
+    padding: 20px 20px 40px 20px;
+}
+
+.surveillanceContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient( to bottom right, rgb(0 0 0 / 90%) 0%, rgb(64 59 59 / 90%) 50%, rgb(4 4 4 / 90%) 100% );
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px #835151;
+    background-size: 200% 200%;
+    margin: 20px;
+    width: 350px;    
+    height: 130px;
+    cursor: pointer;
+    transition: .3s all;
+    overflow: hidden;
+}
+
+
+.surveillanceContainer:hover{
+    box-shadow: 0 0 8px 5px #a56f6f;
+    width: 350px;
+}
+
+.cameraCounts, .peopleCounts{
+    font-family: 'Arial Nova';
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient( to top left, #a38787 0%, #fffbfb 50%, #746666 100% );
+    text-align: left;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+}
+
+.surveillanceNameContainer{
+    width: 60%;
+    overflow: hidden;
+}
+
+.surveillanceName{
+    font-family: 'Arial Nova';
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0;
+    text-align: center;
+    padding-left: 20px;
+    background: linear-gradient( to top left, #a38787 0%, #fffbfb 50%, #746666 100% );
+    text-align: left;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    max-height: 90px;
+    align-items: center;
+    word-break: break-all;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: auto;
+    overflow: hidden;
+}
+
+.surveillanceBottomContainer h3{
+    font-family: 'Arial Nova';
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    text-align: left;
+    -webkit-background-clip: text;
+    color: rgb(255, 255, 255);
+    background-size: 200% 200%;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: auto;
+    overflow: hidden;
+}
+
+.surveillanceContainer:hover .surveillanceBottomContainer h3, .surveillanceContainer:hover .surveillanceName{
+    overflow: visible;
+}
+
+@keyframes descHorizontalAnimation{
+    25%{
+        left: 0;
+    } 75% {
+        left: -100%;
+      
+    }
+}
+.surveillanceTopContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid grey;
+}
+
+.TopRightContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.TopRight1Container{
+    border-bottom: 3px solid grey;
+}
+
+.TopRight1Container, .TopRight2Container{
+    display: flex;
+    align-items: center;
+    border-left: 3px solid grey;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.surveillanceBottomContainer{
+    width: 100%;
+    overflow: hidden;
+    height: 30px;
+}
+
+.topRight1Image{
+    width: 30px;
+    height: 30px;
+}
+
+.topRight2Image{
+    width: 30px;
+    height: 20px;
+}
+
+
+
+.settingContainer{
+    width: 0;
+    transition: .3s all;
+    border: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #885c5c;
+    height: 100%;
+}
+
+
+.mainRight{
+    height: 130px;
+}
+
+.surveillanceContainer:hover .settingContainer{
+    width: 50px;
+    border-left: 3px solid grey;    
+}
+
+.settingContainer img{
+    width: 50px;
+    height: 50px;
+}
+
+.settingBG{
+    background-color: rgba(61, 58, 58, 0.9);
+    transition: .3s all;
+    width: 50px;
+    height: 50px;
+}
+
+.mainRight:hover .settingBG{
+    background-color: rgb(238, 216, 216);
+}
+
+.mainLeft{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 130px;
+}
+
+.surveillanceContainer:hover .mainLeft{
+    width: 300px;
+}
+
+#titleContainer{
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#title{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 35px;
+}

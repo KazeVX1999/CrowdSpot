@@ -1,0 +1,341 @@
+#MainContainer{
+    background-color: #363434;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 40%);
+    min-height: 90vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#SupportBGContainer{
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(219, 152, 152, 0.9) 0%,
+        rgba(214, 176, 172, 0.9) 50%,
+        rgba(241, 159, 170, 0.9) 100% 
+    );
+    transition: .3s all;
+    padding: 20px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#SupportContainerWelcome{
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(219, 108, 108, 0.9) 0%,
+        rgba(209, 146, 139, 0.9) 50%,
+        rgba(228, 102, 119, 0.9) 100% 
+    );
+    box-shadow: rgb(202, 136, 136) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    padding: 20px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    width: 80%;
+    margin: 40px auto;
+}
+
+#SupportContainerOperator{
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(97, 89, 89, 0.9) 0%,
+        rgba(168, 161, 160, 0.9) 50%,
+        rgba(134, 128, 129, 0.9) 100% 
+    );
+    box-shadow: rgb(172, 165, 165) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    padding: 20px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    width: 80%;
+    margin: 40px auto;
+}
+
+#backHome{
+    display: flex;
+}
+
+#backLabel{
+    transition: .3s ease-in-out;
+    background: linear-gradient( to top left, #bd5050 0%, #cf5f5f 50%, #bd5151 100% );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    margin: 0 0 0 -10px;  
+    cursor: pointer;
+}
+
+#backLabel::before{
+    content: '\2190';
+    opacity: 0;   
+    transition: .3s all;
+    transition: .3s ease-in-out;
+    background: linear-gradient( to top left, #dd2323 0%, #c14c4c 50%, #873535 100% );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#backLabel:hover{
+    margin: 0;
+    background: linear-gradient( to top left, #dd2323 0%, #c14c4c 50%, #873535 100% );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#backLabel:hover::before{
+    opacity: 1;
+}
+
+#emailLabel, #subjectLabel, #textLabel, .title{
+    background: linear-gradient(
+        to top left,
+        #252424 0%,
+        #575252 50%,
+        #3d3a3a 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    margin: 0 auto;
+}
+
+#emailLabel::before, #subjectLabel::before{
+    font-weight: lighter;
+    content: '\002A';
+    margin: 0 5px 0 0;
+    background: linear-gradient(
+        to top left,
+        #ac2222 0%,
+        #943d3d 50%,
+        #915b5b 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+input, textarea{
+    border-radius: 5px;
+}
+
+#topLabel{
+    background: black;
+    font-size: 45px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    margin: 10px;
+}
+
+#description{
+    background-color: antiquewhite;
+    color: rgb(61, 57, 57);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: #5e5555 0 0 3px 3px;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+
+.submitLoginButton{
+    color: black;
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT 2s infinite alternate;
+    border-radius: 15px;
+    width: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 40px auto 10px auto;
+}
+
+.submitLoginButton:hover{
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT2 2s infinite alternate;
+    border-radius: 15px;
+    box-shadow: rgb(226, 157, 160) 0 0 5px 5px;
+}
+
+
+.disabledButton{
+    pointer-events: none;
+    cursor: default;
+    background: rgba(197, 197, 197, 0.7);
+    opacity: 0.8;
+}
+
+#messageContainer{
+    text-align: center;
+    margin: 0 auto 25px auto;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+
+#messageERR{
+    margin: 0;
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#messageOK{
+    margin: 0;
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #2b9e14 0%,
+        #3ae951 50%,
+        #067a23 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#formWelcomeSupport{
+    margin: 25px auto;
+    padding: 20px;
+    width: 80%;
+    background-color: cornsilk;
+    box-shadow: rgb(211, 127, 127) 0 0 3px 3px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 10px;
+    transition: .3s all;
+}
+
+#formWelcomeSupport:hover{
+    box-shadow: rgb(224, 143, 143) 0 0 3px 3px;
+}
+
+#formOperatorSupport{
+    margin: 25px auto;
+    padding: 20px;
+    width: 80%;
+    background-color: cornsilk;
+    box-shadow: rgb(143, 132, 132) 0 0 3px 3px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 10px;
+    transition: .3s all;
+}
+
+#formOperatorSupport:hover{
+    box-shadow: rgb(201, 191, 191) 0 0 3px 3px;
+}
+
+
+form input, #messageWelcomeSupport, #messageOperatorSupport{
+    margin: 10px auto 20px auto;
+    width: 80%;
+    border: 0;
+    box-shadow: rgb(209, 202, 202) 0 0 3px 3px;
+    transition: .3s all;    
+    font-size: 15px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+}
+
+form input:hover, #messageWelcomeSupport:hover{
+    box-shadow: rgb(235, 191, 191) 0 0 5px 5px;
+}
+
+form input::placeholder, #messageWelcomeSupport::placeholder{
+    background: linear-gradient(
+        to top left,
+        #5e5b5b 0%,
+        #7a7777 50%,
+        #302b2b 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    transition: .3s ease-in-out;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+}
+
+form h3{
+    margin-top: 20px;
+}
+
+#submitBtn::after{
+    content: "SEND";
+    transition: .3s all;
+}
+
+#submitBtn:hover::after{
+    content: "\2714";
+    text-shadow: 0 0 5px #ad4848;
+}
+

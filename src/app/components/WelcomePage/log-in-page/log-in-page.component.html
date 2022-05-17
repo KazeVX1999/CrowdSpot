@@ -1,0 +1,41 @@
+
+<div id="LoginPageContainer">
+    <div id="LoginFormContainer" *ngIf="showLoginPage == true; else hideLogin">
+        <div class="LoginPageSubContainerCloser">
+            <h3 id="theArrow" (click)="closeLoginFunc()" onmouseover="expandParentContainer('LoginPageSubContainerCloser', 'closerActive')" onmouseleave="expandParentContainer('LoginPageSubContainerCloser', 'closerActive')"></h3>
+        </div>
+        <div id="LoginPageSubContainer">
+            <h2 id="closeLoginButton" (click)="closeLoginFunc()"></h2>
+
+            <div id="flexContainer">
+                <div (click)="closeMessage()" id="messageContainer" *ngIf='message != ""'>
+                    <h3 id="messageLabel">{{message}}</h3>
+                </div>
+            
+                <form id="LoginForm">
+                    <div id="emailLoginSection">
+                        <h3>Email</h3>
+                        <input id="emailLoginInput" class="inputLogin" (keyup)="updateButton()" type="email" placeholder="Your Account E-mail" required>
+
+                    </div>
+                    <div id="passwordLoginSection">
+                        <h3>Password</h3>
+                        <input id="passwordLoginInput" class="inputLogin" (keyup)="updateButton()" type="password" placeholder="Password" required>
+                        <img id="passwordLoginIcon" src="../../../../assets/Images/eye-open.png" alt="Show Password Icon" onclick="ShowPassword('passwordLoginInput', 'passwordLoginIcon')" />
+                        
+                    </div>
+                    <h3 (click)="submit()" class="disabledButton submitLoginButton">LOG IN</h3>         
+                    
+                    
+                </form>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <ng-template #hideLogin>
+        <h2 id="theLoginLabel">LOGIN</h2>
+    </ng-template>
+</div>
+

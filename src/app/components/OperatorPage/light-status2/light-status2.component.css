@@ -1,0 +1,42 @@
+.light2{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 100px;
+    transition: .3s all;
+    box-shadow: 0 0 3px 3px rgb(190, 190, 190);
+}
+
+
+.lightGreen{
+    /* Code Adapted from CSS Gradient, n.d. */
+    /*background: rgb(9,121,31);*/
+    background: radial-gradient(circle, rgba(9,121,31,1) 85%, rgba(3,36,0,1) 100%);
+    /* End of Code Adapted */
+    transition: .3s all;
+    animation: lightGreenAnimator 1.5s alternate-reverse infinite;
+}
+
+@keyframes lightGreenAnimator {
+    from {
+        box-shadow: 0 0 3px 3px rgb(190, 190, 190);
+    } to {
+        box-shadow: rgb(7, 139, 7) 0 0 3px 3px;
+    }
+}
+
+.lightRed{
+    /*background: rgb(217,23,23);*/
+    background: radial-gradient(circle, rgba(217,23,23,1) 85%, rgba(91,24,23,1) 100%);
+    transition: .3s all;
+    animation: lightRedAnimator 1.5s alternate-reverse infinite;
+}
+
+
+@keyframes lightRedAnimator {
+    from {
+        box-shadow: 0 0 3px 3px rgb(190, 190, 190);
+    } to {
+        box-shadow: rgb(206, 14, 14) 0 0 3px 3px;
+    }
+}

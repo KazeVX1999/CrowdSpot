@@ -1,0 +1,209 @@
+footer{
+    color: white;
+    background-color: rgb(36, 34, 34);
+    margin: 0 auto;
+    padding: 20px;
+    transition: .3s all;
+}
+
+footer:hover{
+    box-shadow: white 0 0 5px 5px;
+}
+
+#footerContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+#topContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tops{
+    padding: 20px;
+}
+
+#top1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    transition: .3s all;
+    background: linear-gradient(
+        to top right,
+        #883c3c 0%,
+        #d95252 50%,
+        #883c3c 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 30px;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    cursor: pointer;  
+    margin: 0;
+}
+
+#logo:hover{
+    color: #c76c6c;  
+    text-shadow: 0 0 5px #702121;
+}
+
+.logoContainer{
+    border-top: 3px solid transparent;
+    border-radius: 5px;
+    padding: 20px;
+    border-bottom: 3px solid transparent;
+    transition: .3s all;
+
+}
+
+.logoActive{
+    border-top: 3px solid #c76c6c;
+    border-bottom: 3px solid #c76c6c;
+}
+
+#top2{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-left: rgb(170, 85, 85) 3px solid;
+    border-right: rgb(170, 85, 85) 3px solid;
+    padding: 0 30px 0 30px;
+}
+
+.top2Containers{
+    width: 80%;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.footNav{
+    transition: .3s all;
+    background: linear-gradient(
+        to top left,
+        #883c3c 0%,
+        #7a7777 50%,
+        #883c3c 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 15px;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+}
+
+.footNav:hover{
+    color: #e2e0e0;
+    text-shadow: 0 0 5px #b95c5c;
+}
+
+#top3{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.top3child{
+    margin: 0; 
+    font-size: 15px;
+}
+
+#bottomContainer{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+    border-top: 2px solid rgb(182, 182, 182);
+}
+
+.top2Active{
+    border-left: 3px solid #e2e0e0;
+    border-right: 3px solid #e2e0e0;
+    border-radius: 5px;
+}
+
+#emailContainer{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+}
+
+#scrollUpContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 80px;
+}
+
+.scrollUpCirlce{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #e7b4b4;
+    border-radius: 100px;
+    padding: 20px;
+    width: 20px;
+    height: 20px;
+    box-shadow: #a34b4b 0 0 3px 3px;
+    margin: 20px auto 0 auto;
+    transform: rotate(0deg);
+    transition: 1s all;
+    cursor: pointer;
+}
+
+.scrollUpArrow::after{
+    text-align: center;
+    content: '\2191';
+    background: linear-gradient(
+        to top right,
+        #a54c4c 0%,
+        #c06868 50%,
+        #974c4c 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 30px;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    font-weight: bolder;
+    transition: 1s all;
+}
+
+.scrollUpCirlce:hover{
+    width: 30px;
+    height: 30px;
+    transform: rotate(360deg);
+    background-color: #a34b4b;
+    box-shadow: rgb(240, 196, 196) 0 0 5px 5px;
+}
+
+.scrollUpCirlce:hover .scrollUpArrow::after{
+    color: white;
+    text-shadow: rgb(206, 122, 122) 0 0 5px;
+}
+
+@keyframes animationArrowRotate{
+    from{
+        transform: rotate(0);
+    } to {
+        transform: rotate(360);
+    }
+}

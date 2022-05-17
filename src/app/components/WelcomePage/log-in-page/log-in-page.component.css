@@ -1,0 +1,334 @@
+#LoginPageContainer{
+    height: 100%;
+    width: 100%;
+    border-radius: 0 15px 15px 0;
+    overflow: hidden;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(135, 170, 198, 0.6) 0%,
+        rgba(214, 148, 142, 0.6) 50%,
+        rgba(131, 178, 218, 0.6) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    transition: .3s ease-in-out;
+}
+
+#theLoginLabel{
+    top: 50%;
+    position: relative;
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to top left,
+        #4e4c4c 0%,
+        #8a8383 50%,
+        #575252 100%
+    );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 5px;
+}
+
+#theLoginLabel::after{
+    content: '\2192';
+    transition: .3s ease-in;
+    margin-left: -20px;
+    font-size: 30px;
+    opacity: 0;
+}
+
+#LoginPageContainer:hover{
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(135, 170, 198, 0.9) 0%,
+        rgba(214, 148, 142, 0.9) 50%,
+        rgba(131, 178, 218, 0.9) 100% 
+    );
+    transition: .3s ease-in-out;
+    box-shadow: rgba(197, 152, 148, 0.9) 0 0 5px 5px;    
+}
+
+#LoginPageContainer:hover #theLoginLabel{
+    color: white;
+    text-shadow: #bf4646 0 0 9px;  
+    margin-left: -10px; 
+}
+
+#LoginPageContainer:hover #theLoginLabel::after{
+    color: white;
+    text-shadow: #bf4646 0 0 9px;
+    margin-left: 5px;
+    opacity: 1;
+    
+}
+
+#closeLoginButton, #closeLoginButton::after{
+    content: "LOGIN \00D7";
+    cursor: pointer;
+    margin: 10px auto;
+    width: fit-content;
+    padding: 10px;
+    transition: .3s all;
+    opacity: 1;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgb(49, 47, 47);
+    background: linear-gradient(
+        to top left,
+        #000000 0%,
+        #3b3a3a 50%,
+        #221e1e 100%
+    );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#closeLoginButton:hover, #closeLoginButton:hover::after{
+    content: 'CLOSE \00D7';
+    color: white;
+    border-bottom: 3px solid white;
+    transition: .3s all;
+    text-shadow: #bf4646 0 0 9px;
+}
+
+#LoginFormContainer{
+    animation: showingAfter 1s;
+}
+
+#LoginForm{
+    padding: 5px;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(219, 152, 152, 0.9) 0%,
+        rgba(214, 176, 172, 0.9) 50%,
+        rgba(241, 159, 170, 0.9) 100% 
+    );
+    box-shadow: rgb(187, 154, 154) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    padding: 20px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#LoginForm:hover, #LoginForm:focus{
+    box-shadow: rgb(243 205 205) 0 0 3px 3px;
+}
+#LoginForm h3{
+    color: black;
+    margin: 20px auto 15px auto;
+}
+
+#emailLoginSection, #passwordLoginSection{
+    margin: 10px auto 35px auto;
+}
+
+.inputLogin{
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    border: 0;
+    transition: .3s ease-in-out;
+    background-color:rgb(240, 233, 233);
+    box-shadow: rgb(209, 151, 151) 0 0 3px 3px;
+    transition: .3s all;
+    outline: none;
+    width: 80%;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+
+}
+
+
+.inputLogin:hover, .inputLogin:focus{
+    box-shadow: rgb(197, 133, 133) 0 0 5px 5px;
+}
+
+.inputLogin::placeholder{
+    background: linear-gradient(
+        to top left,
+        #5e5b5b 0%,
+        #7a7777 50%,
+        #302b2b 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    transition: .3s ease-in-out;
+}
+
+#passwordLoginInput{
+    display: inline-block;
+    margin: 10px;
+}
+
+#passwordLoginIcon{
+    width: 35px;
+    height: 20px;
+    margin: 0 0 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: #000000 0 0 5px 5px;
+    border-radius: 100px;
+    animation: showingAfter 1s;
+    transition: .3s all;
+}
+
+#passwordLoginIcon:hover{
+    box-shadow: rgb(235, 191, 191) 0 0 5px 5px;
+}
+
+#LoginPageSubContainer{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100vh;
+    transition: .3s all;
+    padding: 20px 10px 20px 20px;
+}
+.LoginPageSubContainerCloser{
+    float:right;
+    height: 100vh;
+    width: 5%;
+    transition: .3s all;
+}
+
+#theArrow{
+    position: relative;
+    top: 45%;
+    cursor: pointer;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(216, 210, 209, 0.9) 50%,
+        rgba(250, 250, 250, 0.9) 100% 
+    );
+    border-radius: 10px 0 0 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+#theArrow::after{
+    content: '\2190';
+    color: rgb(99, 45, 45);
+    text-shadow: grey 2px 2px 2px;
+    margin-left: 100%;
+    font-size: 35px;
+    transition: .3s all;
+    text-shadow: #bf4646 0 0 9px;
+}
+
+
+#theArrow:hover{    
+    transition: .3s ease-in-out;
+    box-shadow: rgb(197 152 148 / 90%) 0 0 10px 20px;
+}
+#theArrow:hover::after{
+    margin-left: 25%;    
+}
+
+.closerActive{
+    width: 10%;
+}
+
+.submitLoginButton{
+    color: black;
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT 2s infinite alternate;
+    border-radius: 15px;
+    width: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 40px auto 10px auto;
+}
+
+.submitLoginButton:hover{
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT2 2s infinite alternate;
+    border-radius: 15px;
+    box-shadow: rgb(226, 157, 160) 0 0 5px 5px;
+    letter-spacing: 5px;
+}
+
+
+.disabledButton{
+    pointer-events: none;
+    cursor: default;
+    background: rgba(197, 197, 197, 0.7);
+    opacity: 0.8;
+}
+
+#messageContainer{
+    text-align: center;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    color: #d93f07;
+    width: 90%;
+    margin: 0 0 20px 0;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+#messageContainer:hover{
+    opacity: 0.7;
+}
+
+#messageLabel{
+    font-size: 20px;
+    padding: 10px 5px;
+    margin: 0;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#flexContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    height: inherit;
+    justify-content: center;
+    flex-direction: column;
+}

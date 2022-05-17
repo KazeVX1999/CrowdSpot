@@ -1,0 +1,35 @@
+<div id="WelcomeMainContainer" *ngIf="userAuthorized == undefined; else aboutUser">
+    <div id="flex">
+        <div id="AboutContainer">
+            <div id="topContainer">
+                <div id="backHome">
+                    <h3 id="backLabel" routerLink="/" (click)="backtoHomeWelcomePageFunction()">Back to Homepage</h3>
+                </div>
+                <div id="TopLabel">
+                    <h3 id="Label">ABOUT</h3>
+                </div>
+            </div>
+            <div id="mainContainer">
+                <h4 id="Description">An online surveillance made by Wong Hu Woon 2021-2022 for users to be able to monitoring the areas.</h4>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<ng-template #aboutUser>
+    <div id="MainContainer">
+        <div id="flex">
+            <div id="AboutContainer">
+                <div id="topContainer">
+                    <div id="TopLabel">
+                        <h3 id="Label">ABOUT</h3>
+                    </div>
+                </div>
+                <div id="mainContainer">
+                    <h4 id="Description">An online surveillance made by Wong Hu Woon 2021-2022 for users to be able to monitoring the areas.</h4>
+                </div>            
+            </div>
+        </div>
+    </div>
+
+</ng-template>

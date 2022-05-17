@@ -1,0 +1,459 @@
+#ResetContainerCollapse{
+    height: 100%;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    overflow-y: hidden;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(216, 210, 209, 0.6) 50%,
+        rgba(250, 250, 250, 0.6) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    cursor: pointer;
+    transition: .3s ease-in-out;    
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    max-height: 45px;
+}
+
+#ResetContainerCollapse:hover{
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(216, 210, 209, 0.9) 50%,
+        rgba(250, 250, 250, 0.9) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    transition: .3s ease-in-out;
+    box-shadow: rgba(197, 152, 148, 0.9) 0 0 5px 5px;
+}
+
+#ResetContainerExpanded{
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(218, 182, 176, 1) 50%,
+        rgba(226, 156, 156, 1) 100% 
+    );
+    border-radius: 15px 15px 0 0;
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate, showingAfter 1s;
+    transition: .3s ease-in-out;
+    box-shadow: rgba(197, 152, 148, 0.9) 0 0 5px 5px;
+}
+
+#theResetLabel, #resetLabel{
+    transition: .3s ease-in-out;
+    background: linear-gradient( 
+        to top left,
+        #0a0909 0%,
+        #8b6161 50%,
+        #585454 100% 
+    );
+    -webkit-background-clip: text;
+    color: transparent;    
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    margin-top: 55px;
+}
+
+#ResetContainerCollapse:hover #theResetLabel{
+    opacity: 0;
+}
+#ResetContainerCollapse:hover #Arrow::after{
+    margin-top: -65px;
+    opacity: 1;
+}
+
+#resetLabel, #resetLabel::after{
+    content: "RESET PASSWORD \00D7";
+    cursor: pointer;
+    margin: 10px auto;
+    width: fit-content;
+    padding: 10px;
+    transition: .3s all;
+    opacity: 1;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgb(49, 47, 47);
+    background: linear-gradient(
+        to top right,
+        #000000 0%,
+        #3b3a3a 50%,
+        #221e1e 100%
+    );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    min-width: 50%;
+    max-width: 70%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#resetLabel:hover, #resetLabel:hover::after{
+    content: 'CLOSE \00D7';
+    color: white;
+    border-bottom: 3px solid white;
+    transition: .3s all;
+    text-shadow: #bf4646 0 0 9px;
+}
+
+#Arrow::after{
+    content: '\2191';
+    transition: .3s ease-in;
+    display: block;
+    font-size: 30px;
+    color: rgb(99, 45, 45);
+    opacity: 0;
+    text-shadow: #bf4646 0 0 9px;
+}
+
+#resetFormContainer{
+    padding: 10px;
+}
+
+#resetForm{
+    padding: 5px;
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(219, 152, 152, 0.9) 0%,
+        rgba(214, 176, 172, 0.9) 50%,
+        rgba(241, 159, 170, 0.9) 100% 
+    );
+    box-shadow: rgb(187, 154, 154) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    padding: 20px 10px;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#resetForm:hover, #resetForm:focus{
+    box-shadow: rgb(243 205 205) 0 0 3px 3px;
+}
+
+
+.theResetInput{
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+    border: 0;
+    transition: .3s ease-in-out;
+    background-color:rgb(240, 233, 233);
+    box-shadow: rgb(209, 151, 151) 0 0 3px 3px;
+    transition: .3s all;
+    outline: none;
+    width: 80%;
+}
+
+.theResetInput:hover, .theResetInput:focus{
+    box-shadow: rgb(197, 133, 133) 0 0 5px 5px;
+}
+
+.theResetInput::placeholder{
+    background: linear-gradient(
+        to top left,
+        #5e5b5b 0%,
+        #7a7777 50%,
+        #302b2b 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    transition: .3s ease-in-out;
+}
+
+.resetSubmitButton{
+    color: black;
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 153, 212, 0.8) 0%,
+        rgba(150, 202, 231, 0.8) 50%,
+        rgba(121, 152, 209, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT 2s infinite alternate;
+    border-radius: 15px;
+    width: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 20px auto 15px auto;
+
+}
+
+.resetSubmitButton:hover{
+    color: white;
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 153, 212, 1) 0%,
+        rgba(150, 202, 231, 1) 50%,
+        rgba(121, 152, 209, 1) 100%  
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT2 2s infinite alternate;
+    border-radius: 15px;
+    box-shadow: rgba(121, 152, 209, 1) 0 0 5px 5px;
+    letter-spacing: 5px;
+}
+
+.resetPageContainerCloser{
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+    width: 100%;
+    transition: .3s all;
+}
+
+#theCloserArrow{
+    margin: 0;
+    width: 10%;
+    cursor: pointer;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    border-radius: 0 0 10px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    font-size: 15px;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#theCloserArrow::after{
+    content: '\2193';
+    transition: .3s ease-in;
+    color: rgb(99, 45, 45);
+    text-shadow: grey 2px 2px 2px;
+    position: relative;
+    top: -100%;
+}
+
+#theCloserArrow:hover::after{
+  font-size: 30px;
+  top: -10%;
+}
+
+.disabledButton{
+    pointer-events: none;
+    cursor: default;
+    background: rgba(197, 197, 197, 0.7);
+    opacity: 0.8;
+}
+
+
+#messageContainer{
+    text-align: center;
+    margin: 0 auto 25px auto;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    width: 90%;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+#messageContainer:hover{
+    opacity: 0.7;
+}
+
+#messageERR{
+    margin: 0;
+    font-size: 20px;
+    padding: 10px;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#messageOK{
+    margin: 0;
+    font-size: 20px;
+    padding: 10px;
+    background: linear-gradient(
+        to top left,
+        #2b9e14 0%,
+        #3ae951 50%,
+        #067a23 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+.ProcessTeller{
+    margin: 5px;
+    border-bottom: 3px solid;
+}
+
+#ProcessComplete{
+    margin: 5px;
+    border-bottom: 3px solid;
+    color: white;
+}
+
+
+#noteContainer{
+    margin: 30px auto 0 auto;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    padding: 5px 0 10px 5px;
+    width: 90%;
+    text-align: left;
+}
+
+.notes{
+    color: #746060;
+}
+
+.noteHead{
+    margin: 10px;
+}
+
+.noteChild{
+    margin: 0 0 0 5%;
+}
+
+
+.lightLabel{
+    background: linear-gradient(
+        to top left,
+        #000000 0%,
+        #201e1e 50%,
+        #000000 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+
+.lightLabel::before{
+    font-weight: lighter;
+    content: '\002A';
+    margin: 0 5px 0 0;
+    background: linear-gradient(
+        to top left,
+        #ac2222 0%,
+        #943d3d 50%,
+        #915b5b 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+.lightLabelGreen{
+    background: linear-gradient(
+        to top left,
+        #087033 0%,
+        #1dad3c 50%,
+        #088508 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+.lightLabelRed{
+    background: linear-gradient(
+        to top left,
+        #a81717 0%,
+        #da3838 50%,
+        #970a0a 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+
+#passwordResetInput1, #passwordResetInput2{
+    display: inline-block;
+    margin: 10px;
+}
+
+#passwordResetIcon1, #passwordResetIcon2{
+    width: 35px;
+    height: 20px;
+    margin: 0 0 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: #000000 0 0 5px 5px;
+    border-radius: 100px;
+    transition: .3s all;
+}
+
+#passwordResetIcon1:hover, #passwordResetIcon2:hover{
+    box-shadow: rgb(235, 191, 191) 0 0 5px 5px;
+}
+
+#resetCode{
+    display: inline-block;
+    width: 50%;
+}
+
+#resend{
+    display: inline-block;
+    margin: 0 0 0 20px;
+    background: linear-gradient(
+        to top left,
+        #e76a6a 0%,
+        #ca5656 50%,
+        #af5252 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    cursor: pointer;
+}
+
+#resend:hover{
+    text-shadow: 0 0 3px #af5252;
+}
+

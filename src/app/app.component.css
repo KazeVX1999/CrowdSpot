@@ -1,0 +1,146 @@
+#welcomePage{
+    background-image: url("../assets/Images/Welcome Wallpaper.jpg");
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    content: "";
+    overflow-x: hidden; 
+}
+
+#operatorPage{
+    background-image: url("../assets/Images/OperatorWallpaper.jpg");
+    background-size: auto;
+    margin: 0;
+    height: auto;
+    min-height: 100vh;
+    content: "";
+    overflow-x: hidden; 
+}
+
+
+
+.hide{
+    display: none;
+}
+
+.loaderContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(255 255 255 / 20%);
+}
+
+.spinnerLoader, #pageLoaderContent{
+    position: absolute;  
+    top: 47%;  
+    left: 47%;
+    transform: translate(-50%, -50%);
+}
+
+.spinnerLoader{
+    left: 47%;
+    transform: translate(-50%, -50%);
+    width: calc( 100vw * 3 / 100);
+    height: calc( 100vw * 3 / 100);
+    border-radius: 50%;
+    border-right: 15px solid transparent;
+}
+
+#welcomeLoader{
+    top: 53%;
+    animation: welcomeLoaderColorAnimation 1.5s linear infinite alternate, spinnerPageLoaderAnimation 1.5s linear infinite;
+}
+
+@keyframes welcomeLoaderColorAnimation{
+    from{
+        border-top: 15px solid rgb(211, 103, 117);
+        border-left: 15px solid rgb(211, 103, 117);
+        border-bottom: 15px solid rgb(211, 103, 117);
+        box-shadow: rgb(211, 103, 117) -1px 0 5px 1px;
+        
+    } to {
+        border-top: 15px solid rgb(133, 82, 82);
+        border-left: 15px solid rgb(133, 82, 82);
+        border-bottom: 15px solid rgb(133, 82, 82);
+        box-shadow: rgb(133, 82, 82) -1px 0 5px 1px;  
+    }
+}
+
+#operatorLoader{
+    top: 50%;
+    animation: operatorLoaderColorAnimation 1.5s linear infinite alternate, spinnerPageLoaderAnimation 1.5s linear infinite;
+}
+
+@keyframes operatorLoaderColorAnimation{
+    from{
+        border-top: 15px solid rgb(131, 125, 126);
+        border-left: 15px solid rgb(131, 125, 126);
+        border-bottom: 15px solid rgb(131, 125, 126);
+        box-shadow: rgb(131, 125, 126) -1px 0 5px 1px;
+        
+    } to {
+        border-top: 15px solid rgb(49, 45, 45);
+        border-left: 15px solid rgb(49, 45, 45);
+        border-bottom: 15px solid rgb(49, 45, 45);
+        box-shadow: rgb(49, 45, 45) -1px 0 5px 1px;  
+    }
+}
+
+#pageLoader{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0.40turn, rgb(211, 103, 117), #b84d4d,rgb(133, 82, 82), rgb(94, 88, 87), #464040); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    transition: .3s ease-in-out;
+    z-index: 1;
+}
+
+#pageLoaderLabel{
+    background: linear-gradient( to bottom right, #b84d4d 0%, #464040 100% );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 35px;
+    background-size: 250% 250%;
+    animation: movingGradient 2s linear infinite alternate;
+    margin-bottom: 20px;
+}
+
+#spinnerPageLoader{
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-right: 8px solid transparent;
+    animation: spinnerPageLoaderColorAnimation 1.5s linear infinite alternate, spinnerPageLoaderAnimation 1.5s linear infinite;
+}
+
+@keyframes spinnerPageLoaderColorAnimation{
+    from{
+        border-top: 8px solid #b84d4d;
+        border-left: 8px solid #b84d4d;
+        border-bottom: 8px solid #b84d4d;
+        box-shadow: #b84d4d -1px 0 5px 1px;
+    } to {
+        border-top: 8px solid #464040;
+        border-left: 8px solid #464040;
+        border-bottom: 8px solid #464040;
+        box-shadow: #464040 -1px 0 5px 1px;
+    }
+}
+
+@keyframes spinnerPageLoaderAnimation{
+    from{
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+

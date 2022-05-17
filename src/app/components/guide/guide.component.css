@@ -1,0 +1,37 @@
+#guideContainer{
+    margin: 50px;
+}
+
+#mainTitle, .title{
+    background: linear-gradient(
+        to top left,
+        #252424 0%,
+        #444040 50%,
+        #3d3a3a 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    margin: 0 auto;
+}
+
+#mainTitle{
+    font-size: 25px;
+}
+
+.title{
+    font-size: 20px;
+}
+
+.description{
+    color: rgb(73, 73, 73);
+    font-family: 'Arial Nova';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+ul{
+    list-style-type: none;
+}

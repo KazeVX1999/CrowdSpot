@@ -1,0 +1,59 @@
+<footer *ngIf="reset!='no'">
+    <div id="footerContainer">
+        <div id="topContainer">
+            <div id="top1" class="tops">
+                <div class="logoContainer">
+                    <h3 id="logo" routerLink="/" (click)="logoTrigger()" (mouseenter)="updateLogoContainer()" (mouseleave)="updateLogoContainer()">CROWDSPOT</h3>
+                </div>
+                
+            </div>
+            <div id="top2" class="tops" *ngIf="userAuthorized == undefined || null; else operatorFooter">                
+                <div id="accountContainer" class="top2Containers">
+                    <h3 id="account" class="footNav" (click)="accountTrigger()" (mouseenter)="updateAccountContainer()" (mouseleave)="updateAccountContainer()">Account</h3>
+                </div>
+                <div id="surveillanceContainer" class="top2Containers">
+                    <h3 id="surveillance" class="footNav" (click)="surveillanceTrigger()" (mouseenter)="updateSurveillanceContainer()" (mouseleave)="updateSurveillanceContainer()">Surveillance</h3>                    
+                </div>
+                <div id="supportContainer" class="top2Containers">
+                    <h3 id="support" class="footNav" (click)="supportTrigger()" (mouseenter)="updateSupportContainer()" (mouseleave)="updateSupportContainer()">Support</h3>                    
+                </div>
+                <div id="aboutContainer" class="top2Containers">
+                    <h3 id="about" class="footNav" (click)="aboutTrigger()" (mouseenter)="updateAboutContainer()" (mouseleave)="updateAboutContainer()">About</h3>                    
+                </div>
+            </div>
+            <ng-template #operatorFooter>
+                <div id="top2" class="tops">
+                    <div id="accountContainer" class="top2Containers">
+                        <a routerLink="Account" id="account" class="footNav" (click)="scrollUp()" (mouseenter)="updateAccountContainer()" (mouseleave)="updateAccountContainer()">Account</a>
+                    </div>
+                    <div id="surveillanceContainer" class="top2Containers">
+                        <a routerLink="Surveillance" id="surveillance" class="footNav" (click)="scrollUp()" (mouseenter)="updateSurveillanceContainer()" (mouseleave)="updateSurveillanceContainer()">Surveillance</a>                    
+                    </div>
+                    <div id="supportContainer" class="top2Containers">
+                        <a routerLink="Support" id="support" class="footNav" (click)="scrollUp()" (mouseenter)="updateSupportContainer()" (mouseleave)="updateSupportContainer()">Support</a>                    
+                    </div>
+                    <div id="aboutContainer" class="top2Containers">
+                        <a (userEmail)="userAuthorized?.userEmail" routerLink="About" id="about" class="footNav" (click)="scrollUp()" (mouseenter)="updateAboutContainer()" (mouseleave)="updateAboutContainer()">About</a>                    
+                    </div>
+                </div>
+            </ng-template>
+            
+            <div id="top3" class="tops">              
+                <div id="emailContainer">
+                 <h3 id="emailLabel" class="top3child">E-mail Address:</h3>
+                 <h3 id="emailValue" class="top3child">CrowdSpotWHW@gmail.com</h3>
+                </div>  
+                <div id="scrollUpContainer">
+                    <div (click)="scrollUp()" class="scrollUpCirlce">
+                        <div class="scrollUpArrow"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="bottomContainer">
+            <h3> To be Update</h3>
+        </div>
+    </div>
+</footer>

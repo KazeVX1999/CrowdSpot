@@ -1,49 +1,79 @@
 
-<div id="welcomePage" class="MainPage" *ngIf="isAuthenticated == false; else operatorPage">
+<div id="pageLoader">
+  <div id="pageLoaderContent">
+    <h1 id="pageLoaderLabel">CrowdSpot</h1>
+    <div id="spinnerPageLoader"></div>
+  </div>
+</div>
+
+
+
+<div id="welcomePage" *ngIf="user == undefined">
   <app-particles></app-particles>
   <div class="LoginContainer">
-    <app-log-in-page [showLoginPage]="clickLoginPage" (closeLogin)="checkAlertPage($event, 1)" (click)="checkAlertPage(true, 1)"></app-log-in-page>
+    <app-log-in-page #logInPage [showLoginPage]="clickLoginPage" (closeLogin)="checkAlertPage($event, 1)" (click)="checkAlertPage(true, 1)" (userLogin)="updateUserAuthentication($event)"></app-log-in-page>
   </div>
   <div class="SignUpContainer">
-    <app-sign-up-page #signUpPage [showSignUpPage]="clickSignupPage" [disabled]="clickSignupPage" (closeSignUp)="checkAlertPage($event, 2)"  (click)="checkAlertPage(true, 2)"></app-sign-up-page>
+    <app-sign-up-page #signUpPage [showSignUpPage]="clickSignupPage" (signUpComplete)="resetToLogin()" (closeSignUp)="checkAlertPage($event, 2)"  (click)="checkAlertPage(true, 2)"></app-sign-up-page>
   </div>
-  
+      
   <div id="MiddleContainer">
-    <div id="LogoContainer">
-      <app-logo (click)="clickedLogo()"></app-logo>
+    <div class="LogoContainerW">
+      <div id="LogoW">
+        <h1 id="LabelW" (click)="checkAlertPage(true, 0)">Welcome to CrowdSpot</h1>
+      </div>
     </div>
-    <div id="ResetContainer">
-      <app-reset-page [showResetPage]="clickResetPage" (click)="clickedResetPage(true)"></app-reset-page>
+    <div class="ResetContainer">
+      <app-reset-page id="resetApp" #resetPage [showResetPage]="clickResetPage" (resetComplete)="resetToLogin()" (closeReset)="checkAlertPage($event, 3)" (click)="checkAlertPage(true, 3)"></app-reset-page>
     </div>
   </div>
 
-  
-  <app-footer></app-footer>
+</div>
 
+
+<div id="operatorPage"  *ngIf="user != undefined">
+  <app-navigation [userAuthorized]="user"></app-navigation>
+  <router-outlet></router-outlet>
+</div>
+
+<div id="supportPage" *ngIf="showSupportPage">
+  <app-support #supportPage [userAuthorized]="user" (backEmitter)="closeSupportAbout()"></app-support>
   
 </div>
-<ng-template #operatorPage>
-  <div id="operatorPage" class="MainPage">
-    
-  </div>
-</ng-template>
-<div class="alertSignUp">
+
+<div id="aboutPage" *ngIf="showAboutPage">
+  <app-about (backHomeWelcomePage)="closeSupportAbout()" ></app-about> 
+</div>
+
+
+
+<app-footer [userAuthorized]="user" (logoEmitter)="logoEmitterFunction($event)" (accountEmitter)="accountEmitterFunction($event)" (surveillanceEmitter)="surveillanceEmitterFunction($event)" (supportEmitter)="supportEmitterFunction($event)" (aboutEmitter)="aboutEmitterFunction($event)"></app-footer>
+
+<div class="alert">
   <div id="alertBG">
   </div>
   <div id="alertContainer">
       <div id="alertLabelContainer">
-        <h2>SIGN UP - CANCELLATION</h2>
+        <h2 id="alertLabel">{{alertLabel}}</h2>
     </div>
     <div id="alertDescriptionContainer">
-        <h3>Confirm to close the Form?</h3>
-        <h4>*If closed, you will have to re-fill in the form next time you signing up*</h4>
+        <h3 id="alertDescription1">{{alertDescription1}}</h3>
+        <h4 id="alertDescription2">{{alertDescription2}}</h4>
     </div>
     <div id="alertButtonContainer">
         <h2 (click)="activatePage(tempInput, tempPageNumber)" id="alertConfirmButton" class="alertButton">CONFIRM</h2>
         <h2 (click)="resetTempVar()" id="alertCancelButton" class="alertButton">CANCEL</h2>
-
     </div>
   </div>
+</div>
 
-  
+<div *ngIf="loaderService.isLoading | async" class="loaderContainer">
+  <div *ngIf="user == null || undefined; else operatorLoader">
+    <div id="welcomeLoader" class="spinnerLoader"></div>
+  </div>
+  <ng-template #operatorLoader>
+    <div>
+      <div id="operatorLoader" class="spinnerLoader"></div>
+    </div>
+  </ng-template>
 </div>

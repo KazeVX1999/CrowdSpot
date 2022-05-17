@@ -1,0 +1,138 @@
+#MainContainer{
+    background-color: #363434;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 40%);
+    min-height: 90vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#backHome{
+    display: flex;
+}
+
+#backLabel {
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to top left,
+        #000000 0%,
+        #3d3737 50%,
+        #1f1c1c 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    margin: 0 0 0 -10px;  
+    cursor: pointer;
+}
+
+#Label{
+    color: black;
+}
+
+#backLabel::before{
+    content: '\2190';
+    opacity: 0;   
+    transition: .3s all;
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to top left,
+        #000000 0%,
+        #3d3737 50%,
+        #1f1c1c 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#backLabel:hover{
+    margin: 0;
+    background: linear-gradient(
+        to top left,
+        #7c7878 0%,
+        #575252 50%,
+        #a39f9f 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#backLabel:hover::before{
+    opacity: 1;
+}
+
+#AboutContainer{
+    width: 80%;
+    padding: 20px;
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to top left,
+        #443f3f 0%,
+        #928d8d 50%,
+        #575555 100%
+    );
+    font-size: 20px;
+    text-align: center;    
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;  
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    box-shadow: rgb(207, 204, 204) 0 0 5px 5px;
+}
+
+#flex{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#Label{
+    font-size: 45px;
+
+}
+
+#Description{
+    font-size: 20px;
+    padding: 20px;
+    background-color: rgb(228, 208, 179);
+    width: 80%;
+    color: black;
+    margin: 20px auto 40px auto;
+    border-radius: 10px;
+    box-shadow: rgb(158, 152, 152) 0 0 5px 5px;
+    transition: .3s all;
+}
+
+#Description:hover{
+    box-shadow: white 0 0 5px 5px;    
+}
+
+#WelcomeMainContainer{
+    height: 100vh;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient( to bottom right, rgb(183 75 75 / 90%) 0%, rgb(177 102 94 / 90%) 50%, rgb(171 80 93 / 90%) 100% );
+    transition: .3s all;
+    padding: 20px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+}

@@ -1,0 +1,79 @@
+<div id="SignUpPageContainer">
+    <div id="SignUpFormContainer" *ngIf="showSignUpPage == true; else hideSignUp">
+        <div class="SignUpPageSubContainerCloser">
+            <h3 id="theArrow" (click)="closeSignUpFunc()" onmouseover="expandParentContainer('SignUpPageSubContainerCloser', 'closerActive')" onmouseleave="expandParentContainer('SignUpPageSubContainerCloser', 'closerActive')"></h3>
+        </div>
+        
+        <div id="SignUpPageSubContainer" class="flexContainer">
+            <h2 id="closeSignUpButton" (click)="closeSignUpFunc()"></h2>
+            
+            
+
+            <div class="flexContainer">
+                <div (click)="closeMessage()" id="messageContainer" *ngIf='messageOK != "" || messageERR != ""'>
+                    <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+                    <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+                </div>
+
+
+                <!-- Form 1 -->
+                <div class="flexContainer" *ngIf="signUpProcess1Succeed == false && signUpProcess2Succeed == false">
+                    <div id="noteContainer">
+                        <h6 class="notes noteHead">Dear User please Note that your password are required to have:</h6>
+                        <h6 class="notes noteChild">- at least 1 Lower case Letter</h6>
+                        <h6 class="notes noteChild">- at least 1 Upper case Letter</h6>
+                        <h6 class="notes noteChild">- at least 1 Number</h6>
+                        <h6 class="notes noteChild">- at Least 1 Special Character (eg: #!@$%")</h6>
+                        <h6 class="notes noteChild">- minimum of 8 characters</h6>
+                    </div>
+                    <h3 class="ProcessTeller">PROCESS: 1 / 2</h3>
+                    <form id="SignUpForm">
+                        <div id="emailSignUpSection">
+                            <h3 class="lightLabel">Email</h3>
+                            <input id="emailSignUpInput" class="inputSignUp" type="email" (keyup)="updateSubmitButton()" placeholder="E-mail" required>
+
+                        </div>
+                        <div id="passwordSignUpSection1">
+                            <h3 class="lightLabel">Password</h3>
+                            <input id="passwordSignUpInput1" class="inputSignUp" type="password" (keyup)="updateSubmitButton()" placeholder="Password" pattern="(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Password must have at least 1 Number, 1 Lower Case Letter, 1 Upper Case Letter, 1 Special Character and total of 8 characters.">
+                            <img id="passwordSignUpIcon1" src="../../../../assets/Images/eye-open.png" alt="Show First Password Icon" onclick="ShowPassword('passwordSignUpInput1', 'passwordSignUpIcon1')"/>
+                            
+                        </div>
+                        <div id="passwordSignUpSection2">
+                            <h3 class="lightLabel">Confirmation Password</h3>
+                            <input id="passwordSignUpInput2" class="inputSignUp" type="password" (keyup)="updateSubmitButton()" placeholder="Password Confirmation" pattern="(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Confirmation Password must be identical to your password.">
+                            <img id="passwordSignUpIcon2" src="../../../../assets/Images/eye-open.png" alt="Show Second Password Icon" onclick="ShowPassword('passwordSignUpInput2', 'passwordSignUpIcon2')"/>
+                            
+                        </div>
+                        <h3 (click)="signUpProcess1()" class="disabledButton submitSignUpButton">PROCEED</h3>
+
+                    </form>
+                </div>
+
+                <!-- Form 2 -->
+                <div class="flexContainer" *ngIf="signUpProcess1Succeed && signUpProcess2Succeed == false">
+                    <h3 class="ProcessTeller">PROCESS: 2 / 2</h3>
+                    <form id="SignUpForm">
+                        <h4 class="FormDescription">Please enter the code that has been sent to your Email.</h4>
+                        <input id="validateCode" class="inputSignUp" type="text" (keyup)="updateSubmitButton()" placeholder="Validation Code" required>
+                        <h4 (click)="resendCode()" id="resend">Resend Code</h4>
+                        <h3 (click)="signUpProcess2()" class="disabledButton submitSignUpButton">Validate</h3>
+                    </form>
+                </div>
+                <!-- Form 3 -->
+                <div id="SignUpForm" class="flexContainer" *ngIf="signUpProcess2Succeed">
+                    <h3 id="ProcessComplete">PROCESS: COMPLETE</h3>
+                    <h4 class="FormDescription">Dear User, your account has been successfully registered.</h4>
+                    <h4 class="FormDescription">You may now try Log In to your Account.</h4>
+                    <h3 (click)="completeProcess()" class="submitSignUpButton">Go To Log In</h3>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+        
+    <ng-template #hideSignUp>
+        <h2 id="theSignUpLabel">SIGN UP</h2>
+    </ng-template>
+</div>

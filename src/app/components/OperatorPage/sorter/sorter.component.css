@@ -1,0 +1,80 @@
+#SortMainContainer{
+    width: 220px;
+    box-shadow: grey 0 0 3px 3px;
+    border: 3px solid darkgrey;
+    background-color: white;
+    transform: scale(0.8);
+    margin: 0 auto;
+}
+
+#LabelContainer{
+    box-shadow: grey 0 0 3px 0;
+}
+#LabelContainer h6{
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    border-bottom: 3px solid grey;
+}
+
+#SortContainer{
+    display: flex;
+    align-items: center;
+}
+
+.sortChoice{
+    width: 25%;
+    display: flex;
+    height: 55px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #818181 0 0 3px;
+    cursor: pointer;
+}
+
+.sortChoiceActive{
+    box-shadow: #bf6d6d 0 0 20px;
+}
+.sortChoiceActive2{
+    box-shadow: #5285af 0 0 20px;
+}
+
+img{
+    width: 100%;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+#online{
+    width: 40%;
+    height: 40%;
+    background-image: linear-gradient( to top left, #246d33 0%, #4a8b48 50%, #267038 100% );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    box-shadow: 0 0 10px #111411;
+    border-radius: 100px;
+    transition: .3s all;
+
+}
+
+#OnlineContainer:hover #online{
+    background-image: linear-gradient( to top left, #3a974c 0%, #5eb95b 50%, #28833f 100% );
+    box-shadow: 0 0 20px green;
+}
+
+#offline{
+    width: 40%;
+    height: 40%;
+    background-image: linear-gradient( to top left, #792c2c 0%, #8b4848 50%, #af3636 100% );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    box-shadow: 0 0 10px #111411;
+    border-radius: 100px;
+    transition: .3s all;
+}
+
+#OfflineContainer:hover #offline{
+    background-image: linear-gradient( to top left, #973333 0%, #aa4d4d 50%, #ce3b3b 100% );
+    box-shadow: 0 0 20px rgb(175, 34, 34);
+}

@@ -1,0 +1,429 @@
+#MainContainer{
+    background-color: #363434;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 40%);
+    min-height: 90vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.surveillanceMainContainer{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: center;
+    transition: .3s all;
+}
+
+.surveillanceMainContainerActive{
+    width: 50%
+}
+
+.surveillanceContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient( to bottom right, rgb(0 0 0 / 90%) 0%, rgb(64 59 59 / 90%) 50%, rgb(4 4 4 / 90%) 100% );
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px #835151;
+    background-size: 200% 200%;
+    margin: 20px;
+    width: 350px;    
+    height: 130px;
+    cursor: pointer;
+    transition: .3s all;
+    overflow: hidden;
+}
+
+.surveillanceContainer:hover{
+    box-shadow: 0 0 8px 5px #a56f6f;
+    width: 350px;
+}
+
+#emptyLocationContainer{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+#emptyBG{
+    background-image: linear-gradient( to bottom right, rgba(185, 184, 184, 0.9) 0%, rgba(247, 247, 247, 0.9) 50%, rgba(207, 198, 198, 0.9) 100% );
+    border-radius: 10px;
+    color: transparent;
+    box-shadow: 0 0 5px 5px #b96666;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#emptyLabel{
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 10px 20px 10px;
+    border-bottom: 2px solid #6c5050;
+    background: linear-gradient(
+        to top left,
+        #242323 0%,
+        #4d4a4a 50%,
+        #131111 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+
+}
+
+
+#goSurveillance{
+    text-align: center;
+    margin: 20px 0 0 0;
+    background: linear-gradient(
+        to top left,
+        #8d3c3c 0%,
+        #da7676 50%,
+        #974747 100%
+    );
+    text-shadow: #d69797 0 0 3px;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    transition: .3s all;
+    font-size: 18px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+#goSurveillance:hover{
+    background: linear-gradient(
+        to top left,
+        #945858 0%,
+        #f5a5a5 50%,
+        #a56868 100%
+    );
+    -webkit-background-clip: text;
+    text-shadow: #c78e8e 0 0 5px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#goSurveillance::after{
+    opacity: 0;
+    content: '\2192';
+    font-size: 25px;
+    background: linear-gradient(
+        to top left,
+        #8d3c3c 0%,
+        #da7676 50%,
+        #974747 100%
+    );
+    text-shadow: #c78e8e 0 0 5px;
+    font-weight: bolder;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    transition: .3s all;
+}
+
+#goSurveillance:hover::after{
+    margin-left: 10px;
+    opacity: 1;
+    background: linear-gradient(
+        to top left,
+        #945858 0%,
+        #f5a5a5 50%,
+        #a56868 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    text-shadow: #e2b8b8 0 0 3px;
+}
+
+.cameraCounts, .peopleCounts{
+    font-family: 'Arial Nova';
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient( to top left, #a38787 0%, #fffbfb 50%, #746666 100% );
+    text-align: left;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+}
+
+.surveillanceNameContainer{
+    width: 60%;
+    overflow: hidden;
+}
+
+.surveillanceName{
+    font-family: 'Arial Nova';
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0;
+    text-align: center;
+    padding-left: 20px;
+    background: linear-gradient( to top left, #a38787 0%, #fffbfb 50%, #746666 100% );
+    text-align: left;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    max-height: 90px;
+    align-items: center;
+    word-break: break-all;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: auto;
+    overflow: hidden;
+}
+
+.surveillanceBottomContainer h3{
+    font-family: 'Arial Nova';
+    -webkit-user-select: text;
+    user-select: text;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    text-align: left;
+    -webkit-background-clip: text;
+    color: rgb(255, 255, 255);
+    background-size: 200% 200%;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: auto;
+    overflow: hidden;
+}
+
+.surveillanceContainer:hover .surveillanceBottomContainer h3, .surveillanceContainer:hover .surveillanceName{
+    overflow: visible;
+}
+
+@keyframes descHorizontalAnimation{
+    25%{
+        left: 0;
+    } 75% {
+        left: -100%;
+      
+    }
+}
+.surveillanceTopContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #7c4e4e;
+}
+
+.surveillanceContainer:hover .surveillanceTopContainer{
+    border-bottom: 3px solid #a56f6f;
+}
+
+.TopRightContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.TopRight1Container{
+    border-bottom: 3px solid #7c4e4e;
+}
+
+.surveillanceContainer:hover .TopRight1Container{
+    border-bottom: 3px solid #a56f6f;
+}
+
+.TopRight1Container, .TopRight2Container{
+    display: flex;
+    align-items: center;
+    border-left: 3px solid #7c4e4e;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.surveillanceContainer:hover .TopRight1Container, .surveillanceContainer:hover .TopRight2Container{
+    border-left: 3px solid #a56f6f;
+}
+
+.surveillanceBottomContainer{
+    width: 100%;
+    overflow: hidden;
+    height: 30px;
+}
+
+.topRight1Image{
+    width: 30px;
+    height: 30px;
+}
+
+.topRight2Image{
+    width: 30px;
+    height: 20px;
+}
+
+
+
+.settingContainer{
+    width: 0;
+    transition: .3s all;
+    border: 0;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #885c5c;
+    height: 100%;
+}
+
+
+
+.mainRight{
+    height: 130px;
+}
+
+.surveillanceContainer:hover .settingContainer{
+    width: 50px;
+    border-left: 3px solid #a56f6f;    
+}
+
+.settingContainer img{
+    width: 50px;
+    height: 50px;
+}
+
+.settingBG{
+    background-color: rgba(61, 58, 58, 0.9);
+    transition: .3s all;
+    width: 50px;
+    height: 50px;
+}
+
+.mainRight:hover .settingBG{
+    background-color: rgb(238, 216, 216);
+}
+
+
+.mainLeft{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 130px;
+}
+
+.surveillanceContainer:hover .mainLeft{
+    width: 300px;
+}
+
+#topContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#line1, #line2{
+    flex-grow: 2;
+    border: 1px solid grey;
+}
+
+#sorterComp{
+    flex-grow: 0.5;
+}
+
+#Label{
+    transition: .3s all;
+    -webkit-background-clip: text;
+    color: #d95252;
+    text-align: center;
+    font-size: 35px;
+    text-shadow: black 0 0 15px;
+    padding: 15px;
+    margin: 20px auto 10px auto;
+}
+
+
+.SurveillanceFatherContainer{
+    display: flex;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    transition: .3s all;
+    padding: 20px;
+}
+
+.GraphContainerDisabled{
+    display: none;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    transition: .3s all;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.GraphContainerActive{
+    display: flex;
+
+    width: 50%;
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+}
+
+.graphDisabled, .graphDataDisabled{
+    opacity: 0;
+    transition:.3s all;
+}
+
+.graphDataDisabled{
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 1px black;
+    overflow-y: scroll;
+    margin-top:20px;
+}
+
+.graphActive, .graphData{
+    opacity: 1;
+}
+
+.theRecords{
+    margin: 0;
+    padding: 10px;
+}
+
+th{
+    border: 1px solid rgb(179, 122, 122);
+}
+
+table{
+    background-color: grey;
+}
+

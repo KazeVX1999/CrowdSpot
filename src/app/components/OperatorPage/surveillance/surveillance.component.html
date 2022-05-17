@@ -1,0 +1,89 @@
+<div id="MainContainer" *ngIf="userAuthorized != undefined">
+    <div id="titleContainer">
+        <h3 id="title">Surveillance</h3>
+    </div>
+    <div id="messageSpace">
+        <div (click)="closeMessage()" id="messageContainer"*ngIf='messageOK != "" || messageERR != ""'>
+            <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+            <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+        </div>
+    </div>
+    <div class="TopContainer">
+        <div id="AddContainer">
+            <div (click)="AddPopUp()" id="AddLabel">
+                <h3 id="Add"></h3>
+            </div>
+        </div>
+        <app-sorter [type]="1" (sortEmitter)="refreshLocations()"></app-sorter>
+    </div>
+    <div id="emptyLocationContainer" *ngIf="userLocations?.length === 0; else surveillances">
+        <div id="emptyBG">
+            <h3 id="emptyLabel">You have no Location under Surveillance. Try add a new one.</h3>
+        </div>
+    </div>
+    <ng-template #surveillances>
+        <div id="surveillanceMainContainer">
+            <div *ngFor="let surveillance of userLocations; let i = index;">
+                <!-- End of Code Adapted -->
+                <div class="surveillanceContainer" [routerLink]="['/Surveillance/'+surveillance[0].locationID+'/0']" (mouseenter)="SurveillanceDataLabelAnimation(i, true)" (mouseleave)="SurveillanceDataLabelAnimation(i, false)">
+                    <div class="mainLeft">
+                        <div class="surveillanceTopContainer">
+                            <div class="surveillanceNameContainer">
+                                <h3 class="surveillanceName">{{surveillance[0].locationName}}</h3>
+                            </div>
+                            <div class="TopRightContainer">
+                                <div class="TopRight1Container">
+                                    <img class="topRight1Image" src="../../../../assets/Images/cctvIcon.png" alt="Camera Icon">
+                                    <h3 class="cameraCounts">{{surveillance[1]}} / {{surveillance[2]}}</h3>
+                                </div>
+                                <div class="TopRight2Container">
+                                    <img class="topRight2Image" src="../../../../assets/Images/humanIcon.png" alt="People Icon">
+                                    <h3 class="peopleCounts">{{surveillance[3]}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="surveillanceBottomContainer">
+                            <h3 class="surveillanceDescription">{{surveillance[0].locationDescription}}</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="mainRight">
+                        <div class="settingContainer">
+                            <div class="settingBG">
+                                <img src="../../../../assets/Images/settingIcon.png" alt="Setting Icon">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+                
+        </div>
+    </ng-template>
+
+    <!-- Add Pop Up -->
+    <div (click)="turnOffAdd()" class="AddPopUpBG"></div>
+
+    <div class="AddPopUpContainer">
+        <div id="topAdd">
+            <h3 (click)="turnOffAdd()"  id="labelAdd"></h3>
+        </div>
+        <div id="messageContainer" (click)="closeAddMessage()" *ngIf='messageOKADD != "" || messageERRADD != ""'>
+            <h3 *ngIf='messageOKADD != ""' id="messageOKADD">{{messageOKADD}}</h3>
+            <h3 *ngIf='messageERRADD != ""' id="messageERRADD">{{messageERRADD}}</h3>
+        </div>
+        <div id="formContainer">
+            <h3 class="label" id="requiredLocationName">Location Name</h3>
+            <input type="text" id="locationName" placeholder="Location Name" (keyup)="updateSubmitADDButton()" required>
+            <h3 class="label">Location Description</h3>
+            <textarea id="locationDescription" placeholder="Address / Description"></textarea>
+        </div>
+        <div id="buttonContainer">
+            <h3 (click)="addNewLocationAPI()" class="buttonAdd disabled">Add</h3>
+        </div>
+    </div>
+
+
+</div>
+

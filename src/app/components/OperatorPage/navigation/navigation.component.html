@@ -1,0 +1,26 @@
+<div id="NavContainer">
+    <div id="LeftContainer">
+        <div class="Logo">
+            <h1 id="Label" routerLink="/" (mouseenter)="updateLogo(true)" (mouseleave)="updateLogo(false)">CrowdSpot</h1>
+            <app-light-status [lightType]="1" [numberOfLight]="0"></app-light-status>
+        </div>
+    </div>
+    <div id="MiddleContainer">
+        <div class="surveillanceContainer middleContainer">
+            <h3 id="surveillance" routerLink="SurveillanceOverview/0" (mouseenter)="updateSurveillanceContainer(true)" (mouseleave)="updateSurveillanceContainer(false)">SURVEILLANCES</h3>
+        </div>
+        <div class="supportContainer middleContainer">
+            <h3 id="support" routerLink="Support" (mouseenter)="updateSupportContainer(true)" (mouseleave)="updateSupportContainer(false)">SUPPORT</h3>
+        </div>
+        <div class="aboutContainer middleContainer">
+            <h3 id="about" routerLink="About" (mouseenter)="updateAboutContainer(true)" (mouseleave)="updateAboutContainer(false)">ABOUT</h3>
+        </div>
+    </div>
+    <div id="RightContainer">        
+        <div class="userContainer" routerLink="Account" (mouseenter)="userContainerUpdateBorder(true)" (mouseleave)="userContainerUpdateBorder(false)">
+            <h3 id="usernameLabel">ACCOUNT</h3>
+            <h3 id="username">{{userAuthorized?.userEmail}}</h3>
+        </div>
+    </div>
+
+</div>

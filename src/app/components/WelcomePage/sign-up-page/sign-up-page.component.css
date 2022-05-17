@@ -1,0 +1,483 @@
+#SignUpPageContainer{
+    height: 100%;
+    width: 100%;
+    border-radius: 15px 0 0 15px;
+    overflow-x: hidden;
+    background-image: linear-gradient(
+        to top left,
+        rgba(214, 148, 142, 0.6) 0%,
+        rgba(224, 218, 217, 0.6) 50%,
+        rgba(214, 148, 142, 0.6) 100%
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+    transition: .3s ease-in-out;
+}
+
+#theSignUpLabel{
+    top: 50%;
+    position: relative;
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to bottom right,
+        #4e4c4c 0%,
+        #8a8383 50%,
+        #575252 100%
+    );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 5px;
+}
+
+#theSignUpLabel::before{
+    content: '\2190';
+    transition: .3s ease-in;
+    margin-right: -20px;
+    font-size: 30px;
+    opacity: 0;
+}
+
+#SignUpPageContainer:hover {
+    background-image: linear-gradient(
+        to top left,
+        rgba(214, 148, 142, 0.9) 0%,
+        rgba(224, 218, 217, 0.9) 50%,
+        rgba(214, 148, 142, 0.9) 100%
+    );
+    transition: .3s ease-in-out;
+    box-shadow: rgba(214, 148, 142, 0.9) 0 0 5px 5px;
+}
+
+#SignUpPageContainer:hover #theSignUpLabel{
+    color: white;
+    text-shadow: #bf4646 0 0 9px;
+    margin-left: -10px;
+}
+
+#SignUpPageContainer:hover #theSignUpLabel::before{
+    color: white;
+    text-shadow: #bf4646 0 0 9px;
+    margin-right: 10px;
+    opacity: 1;
+}
+
+#closeSignUpButton, #closeSignUpButton::after{
+    content: "SIGN UP \00D7";
+    cursor: pointer;
+    margin: 10px auto;
+    width: fit-content;
+    padding: 10px;
+    transition: .3s all;
+    opacity: 1;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgb(49, 47, 47);
+    background: linear-gradient(
+        to top right,
+        #000000 0%,
+        #3b3a3a 50%,
+        #221e1e 100%
+    );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#closeSignUpButton:hover, #closeSignUpButton:hover::after{
+    content: 'CLOSE \00D7';
+    color: white;
+    text-shadow: #bf4646 0 0 9px;
+    border-bottom: 3px solid white;
+    transition: .3s all;
+}
+
+#SignUpFormContainer{
+    animation: showingAfter 1s;
+}
+
+#SignUpForm{
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(219, 152, 152, 0.9) 0%,
+        rgba(214, 176, 172, 0.9) 50%,
+        rgba(241, 159, 170, 0.9) 100% 
+    );
+    box-shadow: rgb(187, 154, 154) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    padding: 20px 10px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#SignUpForm:hover, #SignUpForm:focus{
+    box-shadow: rgb(243 205 205) 0 0 3px 3px;
+}
+
+#emailLoginSection, #passwordSignUpSection1, #passwordSignUpSection1{
+    margin: 10px auto 35px auto;
+}
+
+.inputSignUp{
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+    border: 0;
+    transition: .3s ease-in-out;
+    background-color:rgb(240, 233, 233);
+    box-shadow: rgb(209, 151, 151) 0 0 3px 3px;
+    transition: .3s all;
+    outline: none;
+    width: 60%;
+}
+
+
+.inputSignUp:hover, .inputSignUp:focus{
+    box-shadow: rgb(197, 133, 133) 0 0 5px 5px;
+}
+
+.inputSignUp::placeholder{
+    background: linear-gradient(
+        to top left,
+        #5e5b5b 0%,
+        #7a7777 50%,
+        #302b2b 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    transition: .3s ease-in-out;
+}
+
+#passwordSignUpInput1, #passwordSignUpInput2{
+    display: inline-block;
+    margin: 10px;
+}
+
+#passwordSignUpIcon1, #passwordSignUpIcon2{
+    width: 35px;
+    height: 20px;
+    margin: 0 0 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: #000000 0 0 5px 5px;
+    border-radius: 100px;
+    transition: .3s all;
+}
+
+#passwordSignUpIcon1:hover, #passwordSignUpIcon2:hover{
+    box-shadow: rgb(235, 191, 191) 0 0 5px 5px;
+}
+
+#SignUpPageSubContainer{
+    width: auto;
+    height: inherit;
+    vertical-align: top;
+    transition: .3s all;
+    padding: 20px 20px 20px 10px;
+}
+.SignUpPageSubContainerCloser{
+    float: left;
+    height: 100vh;
+    width: 5%;
+    transition: .3s all;
+}
+
+#theArrow{
+    position: relative;
+    top: 45%;
+    cursor: pointer;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(216, 210, 209, 0.9) 50%,
+        rgba(250, 250, 250, 0.9) 100% 
+    );
+    border-radius: 0 10px 10px 0;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+#theArrow::before{
+    content: '\2192';
+    color: rgb(99, 45, 45);
+    margin-left: -200%;
+    font-size: 35px;
+    transition: .3s all;
+    text-shadow: #bf4646 0 0 9px;
+}
+
+
+#theArrow:hover{    
+    transition: .3s ease-in-out;
+    box-shadow: rgb(197 152 148 / 90%) 0 0 10px 20px;    
+}
+#theArrow:hover::before{
+    margin-left: 0;  
+}
+
+.closerActive{
+    width: 10%;
+}
+
+.submitSignUpButton{
+    color: black;
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT 2s infinite alternate;
+    border-radius: 15px;
+    width: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 40px auto 10px auto;
+}
+
+.submitSignUpButton:hover{
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT2 2s infinite alternate;
+    border-radius: 15px;
+    box-shadow: rgb(226, 157, 160) 0 0 5px 5px;
+    letter-spacing: 5px;
+}
+
+.disabledButton{
+    pointer-events: none;
+    cursor: default;
+    background: rgba(197, 197, 197, 0.7);
+    opacity: 0.8;
+}
+
+#messageContainer{
+    text-align: center;
+    margin: 0 auto 25px auto;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+#messageContainer:hover{
+    opacity: 0.7;
+}
+
+#messageERR{
+    margin: 0;
+    font-size: 18px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#messageOK{
+    margin: 0;
+    font-size: 18px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #2b9e14 0%,
+        #3ae951 50%,
+        #067a23 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+.lightLabel{
+    background: linear-gradient(
+        to top left,
+        #000000 0%,
+        #201e1e 50%,
+        #000000 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+.lightLabel::before{
+    font-weight: lighter;
+    content: '\002A';
+    margin: 0 5px 0 0;
+    background: linear-gradient(
+        to top left,
+        #ac2222 0%,
+        #943d3d 50%,
+        #915b5b 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+.lightLabelGreen{
+    background: linear-gradient(
+        to top left,
+        #087033 0%,
+        #1dad3c 50%,
+        #088508 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+.lightLabelRed{
+    background: linear-gradient(
+        to top left,
+        #a81717 0%,
+        #da3838 50%,
+        #970a0a 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#noteContainer{
+    margin: 30px auto 0 auto;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    padding: 5px 0 10px 5px;
+    width: 90%;
+}
+
+.notes{
+    color: #746060;
+}
+
+.noteHead{
+    margin: 10px;
+}
+
+.noteChild{
+    margin: 0 0 0 15px;
+}
+
+#inputSignUp{
+    display: inline-block;
+    width: 50%;
+}
+
+#resend{
+    display: inline-block;
+    margin: 0 0 0 20px;
+    background: linear-gradient(
+        to top left,
+        #e76a6a 0%,
+        #ca5656 50%,
+        #af5252 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    cursor: pointer;
+}
+
+#resend:hover{
+    text-shadow: 0 0 3px #af5252;
+}
+
+.FormDescription{
+    color: black;
+}
+
+
+.flexContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    height: inherit;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ProcessTeller{
+    margin: 20px 0 0 0;
+    border-bottom: 3px solid;
+    color: black;
+}
+
+#ProcessComplete{
+    margin: 20px 0 0 0;
+    border-bottom: 3px solid;
+    color: white;
+}
+
+@media only screen and (max-height: 720px) {
+    #SignUpForm{
+        margin: 25px auto;
+    }
+    .lightLabel{
+        margin: 0 10px 10px auto;
+    }
+    .inputSignUp{
+        width: auto;
+    }
+    #passwordSignUpSection1, #passwordSignUpSection2{
+        margin: 10px auto;
+    }
+    .submitSignUpButton{
+        margin: 20px auto 5px auto;
+    }
+  }

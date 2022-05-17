@@ -1,0 +1,83 @@
+
+    <div id="SupportBGContainer" *ngIf="userAuthorized == undefined; else operatorPageAbout">
+        <div id="SupportContainerWelcome">
+            <div id="topContainer">
+                <div id="backHome">
+                    <h3 id="backLabel" (click)="backToMainWelcomePage()">Back to Homepage</h3>
+                </div>
+                <div id="TopLabel">
+                    <h3 id="topLabel">SUPPORT</h3>
+                </div>
+            </div>
+            <div id="messageContainer" (click)="closeMessage()" *ngIf='messageOK != "" || messageERR != ""'>
+                <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+                <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+            </div>
+            <div id="mainContainer">
+                <h4 id="description">
+                    If you have any enquiry please don't hesitate to contact us.
+                </h4>
+                <form id="formWelcomeSupport">
+                    <div id="emailSection">
+                        <h3 id="emailLabel">E-mail</h3>
+                        <input id="emailWelcomeSupport" type="email" (keyup)="updateSubmitButton()" placeholder="Your Email" required>
+                    </div>
+                    <div id="subjectSection">
+                        <h3 id="subjectLabel">Subject</h3>
+                        <input id="subjectWelcomeSupport" type="text" (keyup)="updateSubmitButton()" placeholder="Your Subject..." required>
+                    </div>
+                    <div id="textSection">
+                        <h3 id="textLabel">Message</h3>
+                        <textarea id="messageWelcomeSupport" cols="5" placeholder="Say Anything..."></textarea>
+                    </div>
+                    <div id="ButtonSection">
+                        <h3 id="submitBtn" (click)="submit()" class="disabledButton submitLoginButton"></h3>
+                    </div>
+                </form>
+                
+                <!-- <app-guide></app-guide> -->
+            </div>
+        </div>   
+    </div>
+
+
+
+    <ng-template #operatorPageAbout>
+    <div id="MainContainer">
+        <div id="SupportContainerOperator">
+            <div id="topContainer">
+                <div id="TopLabel">
+                    <h3 id="topLabel">SUPPORT</h3>
+                </div>
+            </div>
+            <div id="messageContainer" (click)="closeMessage()" *ngIf='messageOK != "" || messageERR != ""'>
+                <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+                <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+            </div>
+            <div id="mainContainer">
+                <form id="formOperatorSupport">
+                    <div id="emailSection">
+                        <h3 id="emailLabel">E-mail</h3>
+                        <input type="email" id="emailOperatorSupport" type="email" value={{userAuthorized?.userEmail}} (keyup)="updateSubmitButton()" placeholder="Your Email" required>
+                    </div>
+                    <div id="subjectSection">
+                        <h3 id="subjectLabel">Subject</h3>
+                        <input id="subjectOperatorSupport" type="text" (keyup)="updateSubmitButton()" placeholder="Your Subject..." required>
+                    </div>
+                    <div id="textSection">
+                        <h3 id="textLabel">Message</h3>
+                        <textarea id="messageOperatorSupport" cols="5" placeholder="Say Anything..."></textarea>
+                    </div>
+                    <div id="ButtonSection">
+                        <h3 id="submitBtn" (click)="submit()" class="disabledButton submitLoginButton"></h3>
+                    </div>
+                </form>
+                <!-- <app-guide></app-guide> -->
+            </div>
+                    
+        </div>
+    </div>
+    </ng-template>
+
+
+

@@ -1,0 +1,201 @@
+<div id="MainContainer" *ngIf="theLocation != null || undefined">
+    <div id="BackContainer">
+        <p (click)="goBack()" id="back">Go Back To Previous Page</p>
+    </div>
+
+    <div (click)="closeMessage()" id="messageContainer" *ngIf='messageOK != "" || messageERR != ""'>
+        <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+        <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+    </div>
+
+    <div class="surveillanceTopContainer">
+        <h3 id="locationNameLabel" class="mustFill">Location Name</h3>
+        <input id="surveillanceName" (keyup)="preventEmptyInputSave()" value={{currentLocationName}} placeholder="Location Name - Required" required>
+        <div id="nameLine"></div>
+        <h3 id="locationDescriptionLabel" >Location Description</h3>
+        <textarea id="surveillanceDesc" (keyup)="preventEmptyInputSave()" value={{currentLocationDesc}} placeholder="Location Description / Address"></textarea>
+        
+
+        <div id="buttonContainer">
+            <div (click)="saveSurveillance()" class="saveContainer disabledButton">
+                <div class="saveWP disabledWP">
+                    <img id="saveIcon" src="../../../../assets/Images/saveIcon.png" alt="Save Icon">
+                </div>
+                <h3 id="saveLabel">Save</h3>
+            </div>
+            <div (click)="showDeleteAlert()"  class="removeContainer disabledButton">
+                <div class="removeWP disabledWP">
+                    <img id="removeIcon" src="../../../../assets/Images/removeIcon.png" alt="Remove Icon">
+                </div>
+                <h3 class="counter">{{count}}</h3>
+                <h3 id="removeLabel">Remove</h3>
+            </div>
+        </div>
+    </div>
+    <div class="surveillanceTopController" (click)="showLocationSetting()">
+        <h6 class="surveillanceTopControllerLabel1">Show Location Setting</h6>
+        <h6 class="surveillanceTopControllerLabel2">Hide Location Setting</h6>
+        <h6 class="surveillanceTopControllerArrow"></h6>
+    </div>
+    <div id="MiddleContainer" (click)="showGraph()">
+        <div id="middleLeft">
+            <h3 id="peopleCount">{{currentPeopleCount}}</h3>
+            <img id="peopleCountIcon" src="../../../../assets/Images/humanIcon.png" alt="People Icon">
+        </div>
+        <div id="middlemiddle">
+            <h3 id="middleHint">Press To Show Graph</h3>
+        </div>
+        <div id="middleRight">
+            <h3 id="peopleCount">{{theLocation?.[1]}} / {{theLocation?.[2]}}</h3>
+            <img id="peopleCountIcon" src="../../../../assets/Images/cctvIcon.png" alt="People Icon">
+        </div>
+        
+    </div>
+    <div class="GraphContainerDisabled">
+        <canvas class="graphDisabled" id="theGraph"></canvas>
+        <div class="graphDataDisabled">
+            <table>
+                <tr>
+                    <th>
+                        <h6 class="theRecords">Time</h6>
+                    </th>
+                    <th>
+                        <h6 class="theRecords">People Count</h6>
+                    </th>
+                </tr>
+                <tr *ngFor="let records of locationRecordExtraction[1]; let i = index;">
+                    <th>
+                        <h6 class="theRecords">{{records.timeRecorded.split("T")[1].split(".")[0]}}</h6>
+                    </th>
+                    <th>
+                        <h6 class="theRecords">{{records.PeopleCount}}</h6>
+                    </th>
+                </tr>
+            </table>                    
+        </div>
+    </div>
+    <div id="surveillanceBottomContainer" >
+        <div id="surveillanceBottomTopContainer">
+            <div (click)="AddPopUp()" id="addCameraContainer">
+                <div id="AddLabel">
+                    <h3 id="Add"></h3>
+                </div>
+            </div>
+            <app-sorter id="sorterComp" [type]="2" (sortEmitter)="refreshCameras()"></app-sorter>
+        </div>
+        <div id="cameraFlex">
+            <div id="cameraNonContainer" *ngIf="theCamera?.length === 0; else cameraMain">
+                <h3 id="noCameraLabel">This Location currently has no camera for surveillance. Do mind add new camera.</h3>
+            </div>
+            <ng-template #cameraMain>
+                <div id="cameraMainContainer">
+                    <div *ngFor="let camera of theCamera; let i = index;">
+                        <!-- End of Code Adapted -->
+                        <div class="cameraContainer" (mouseenter)="SurveillanceDataLabelAnimation(i, true)" (mouseleave)="SurveillanceDataLabelAnimation(i, false)">
+                            <div class="cameraLeft">   
+                                <div id="upperContainer">
+                                    <div class="cameraNameContainer">
+                                        <p class="cameraName">{{camera.cameraName}}</p>
+                                    </div>
+                                    <div class="cameraLine"></div>
+                                    <div class="cameraDescContainer">
+                                        <p class="cameraDesc">{{camera.cameraDescription}}</p>                                        
+                                    </div>
+                                </div>
+                                <div id="operationContainer">
+                                    <p id="operation">Operation</p>
+                                    <app-light-status [lightType]="2" [numberOfLight]="i+1" [theCamera]="camera" (refreshSignal)="refreshCameras()" ></app-light-status>
+                                 </div>
+                                 <div id="operatingContainer">
+                                    <p id="operating">Operating</p>
+                                    <app-light-status2 [numberOfLight]="i" [theCamera]="camera" ></app-light-status2>
+                                </div>
+                            </div>
+                            <div class="cameraRight">
+                                <div id="settingBG" [routerLink]="['/Camera/'+ theLocation?.[0]?.locationID + '/' + camera.cameraID]">
+                                    <img id="settingIcon" src="../../../../assets/Images/settingIcon2.png" alt="Setting Icon">
+                                </div>
+                                <div id="streamBG" (click)="stream(camera.cameraID)"> 
+                                    <img id="streamIcon" src="../../../../assets/Images/stream.png" alt="Stream Icon">
+                                </div>
+                            </div>                         
+                        </div>
+                            
+                    </div>                    
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <!-- Add Camera POP UP -->
+    <div (click)="turnOffAdd()" class="AddPopUpBG"></div>
+    <div class="AddPopUpContainer">
+        <div id="topAdd">
+            <h3 (click)="turnOffAdd()" id="labelAdd"></h3>
+        </div>
+        <div id="messageContainer" (click)="closeMessageAdd()" *ngIf='messageOKADD != "" || messageERRADD != ""'>
+            <h3 *ngIf='messageOKADD != ""' id="messageOKADD">{{messageOKADD}}</h3>
+            <h3 *ngIf='messageERRADD != ""' id="messageERRADD">{{messageERRADD}}</h3>
+        </div>
+        <div id="formContainer">
+            <h3 class="label labelMustFill">Camera Name</h3>
+            <input type="text" id="addCameraName" class="addInput" placeholder="Camera Name - Required" (keyup)="updateAddSubmitButton()" required>
+            <h3 class="label">Camera Description</h3>
+            <textarea id="addCameraDescription" class="addInput" placeholder="Camera Description"></textarea>
+            <h3 class="label">Camera Code</h3>
+            <div id="codeContainer">
+                <input type="text" id="addCameraCode" class="addInput" readonly required>
+                <img (click)="copy()"  id="copyIcon" src="../../../../assets/Images/copyIcon.png" alt="Copy Icon">
+                <img (click)="refreshCode()"  id="refreshIcon" src="../../../../assets/Images/refreshIcon.png" alt="Refresh Icon">
+            </div>
+            <h3 class="label">Camera Operation</h3>
+            <!-- Code Adapted from CSS CodeLab, n.d. -->
+            <div class="toggle-radio">
+                <input type="radio" name="rdo" id="Online" checked>
+                <input type="radio" name="rdo" id="Offline">
+                <div class="switch" (click)="toggleAddCameraOpStatus()">
+                  <label for="Online">Yes</label>
+                  <span></span>
+                  <label for="Offline">No</label>
+                </div>
+              </div>
+              <!-- End of code Adapted -->
+        </div>
+        <div id="addButtonContainer">
+            <h3 (click)="AddCamera()" class="buttonAdd disabled">Add</h3>
+        </div>
+    </div>
+
+    <!-- Delete Surveillance POP UP -->
+    <div (click)="turnOffDelete()" class="DelPopUpBG"></div>
+    <div class="DelPopUpContainer">
+        <div id="titleContainer">
+            <h3 id="title" (click)="turnOffDelete()" ></h3>
+        </div>
+        <div id="messageContainer" (click)="closeMessageDel()" *ngIf='messageERRDEL != ""'>
+            <h3 *ngIf='messageERRDEL != ""' id="messageERRDEL">{{messageERRDEL}}</h3>
+        </div>
+        <div id="middleContainer">
+            <h3 id="description">Are you sure to delete this Surveillance?</h3>
+            <div *ngIf="theLocation?.[0]?.userCameraTables?.length != 0;" id="middleCameraContainer">
+                <h6 *ngIf="theLocation?.[0]?.userCameraTables?.length == 1; else moreCamera" class="middleLabel">This surveillance contained: {{theLocation?.[0]?.userCameraTables?.length}} camera</h6>
+                <ng-template #moreCamera>
+                    <h4 class="middleLabel">This surveillance contained: {{theLocation?.[0]?.userCameraTables?.length}} cameras</h4>
+                </ng-template>
+            </div>
+        </div>
+        <div id="bottomContainer">
+            <div id="deleteConfirmContainer" (click)="Delete()" (mouseenter)="DeleteIcon(true)" (mouseleave)="DeleteIcon(false)">
+                <div id="deleteConfirmIconBG">
+                    <img id="deleteConfirmIcon" src="../../../../assets/Images/removeIcon1.png" alt="Remove Icon">
+                </div>
+                <h3 id="deleteConfirmLabel">Confirm</h3>
+            </div>
+            <div id="deleteCancelContainer" (click)="turnOffDelete()">
+                <h3 id="deleteCancelLabel"></h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+

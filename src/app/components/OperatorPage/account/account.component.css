@@ -1,0 +1,623 @@
+#MainContainer{
+    text-align: center;
+    background-color: #363434;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 40%);
+    min-height: 90vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container{
+    padding: 20px;
+    margin: 40px;
+    width: 90%;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(223, 175, 175, 0.9) 0%,
+        rgba(248, 205, 201, 0.9) 50%,
+        rgba(226, 172, 179, 0.9) 100% 
+    );
+    box-shadow: rgb(204, 159, 159) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+#messageContainer{
+    text-align: center;
+    margin: 0 auto 25px auto;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+
+#messageERR{
+    margin: 0;
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#messageOK{
+    margin: 0;
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #2b9e14 0%,
+        #3ae951 50%,
+        #067a23 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+.lightLabel{
+    background: linear-gradient(
+        to top left,
+        #000000 0%,
+        #201e1e 50%,
+        #000000 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+.lightLabelGreen{
+    background: linear-gradient(
+        to top left,
+        #087033 0%,
+        #1dad3c 50%,
+        #088508 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+.lightLabelRed{
+    background: linear-gradient(
+        to top left,
+        #a81717 0%,
+        #da3838 50%,
+        #970a0a 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+}
+
+
+
+#clickLabel{
+    cursor: pointer;
+}
+
+#userEmailContainer{
+    border-bottom: 3px solid coral;
+    padding-bottom: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+#emailLabel{
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to top left,
+        #5e5656 0%,
+        #857c7c 50%,
+        #4d4b4b 100%
+    );
+    font-size: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    font-style: italic;
+    margin: 0 auto;
+}
+
+#emailuser{
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to top left,
+        #b43c2d 0%,
+        #c96546 50%,
+        #b92b20 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    margin: 10px auto;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding: 0 34px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+#emailuser:hover{
+    border-bottom: 3px solid #bf4c43;
+}
+
+
+.submitButton{
+    color: black;
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT 2s infinite alternate;
+    border-radius: 15px;
+    width: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 40px auto 10px auto;
+}
+
+.submitButton:hover{
+    background-image: linear-gradient(
+        to bottom left,
+        rgba(80, 212, 113, 0.8) 0%,
+        rgba(150, 231, 177, 0.8) 50%,
+        rgba(164, 209, 121, 0.8) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate, animatingTEXT2 2s infinite alternate;
+    border-radius: 15px;
+    box-shadow: rgb(226, 157, 160) 0 0 5px 5px;
+}
+
+.disabledButton{
+    pointer-events: none;
+    cursor: default;
+    background: rgba(197, 197, 197, 0.7);
+    opacity: 0.8;
+}
+
+
+
+.inputChangePassword{
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Arial Nova';
+    border: 0;
+    transition: .3s ease-in-out;
+    background-color:rgb(240, 233, 233);
+    box-shadow: rgb(209, 151, 151) 0 0 3px 3px;
+    transition: .3s all;
+    outline: none;
+    width: 80%;
+}
+
+
+.inputChangePassword:hover, .inputChangePassword:focus{
+    box-shadow: rgb(197, 133, 133) 0 0 5px 5px;
+}
+
+.inputChangePassword::placeholder{
+    background: linear-gradient(
+        to top left,
+        #5e5b5b 0%,
+        #7a7777 50%,
+        #302b2b 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    transition: .3s ease-in-out;
+}
+
+#currentPassword, #password1, #password2{
+    display: inline-block;
+    margin: 10px;
+}
+
+#passwordCurrentIcon, #passwordIcon1, #passwordIcon2{
+    width: 35px;
+    height: 20px;
+    margin: 0 0 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: #000000 0 0 5px 5px;
+    border-radius: 100px;
+    transition: .3s all;
+}
+
+#passwordCurrentIcon:hover, #passwordIcon1:hover, #passwordIcon2:hover{
+    box-shadow: rgb(235, 191, 191) 0 0 5px 5px;
+}
+
+#changePasswordContainer{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.clickToShow{
+    background-color: rgb(197, 103, 108);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: rgb(156, 91, 91) 0 0 3px 3px;
+    transition: .3s all;
+    cursor: pointer;
+    margin: 30px auto 0 auto;
+    width: 50%;
+
+}
+
+.clickToShow:hover{
+    background-color:rgb(202, 140, 140);
+    box-shadow: rgb(195 126 126) 0 0 6px 6px;
+}
+
+
+.clickToShowActive{
+    background-image: linear-gradient(
+        to bottom left,
+        rgb(202, 140, 140) 0%,
+        rgb(235, 232, 233) 50%,
+        rgb(219, 144, 147) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+}
+
+.label{
+    color: black;
+}
+
+.labelm{
+    margin: 20px auto 0 auto;
+}
+
+.clickLabel{
+    background: linear-gradient(
+        to top left,
+        #b43c2d 0%,
+        #c96546 50%,
+        #b92b20 100%
+    );
+    font-size: 20px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    margin: 0; 
+    transition: .3s all;
+}
+
+
+.clickToShow:hover .clickLabel{
+    background: linear-gradient(
+        to top left,
+        #e26150 0%,
+        #d38582 50%,
+        #be473e 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+.changePassword{
+    transition: .3s all;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    
+    
+}
+
+.changePasswordActive{
+    padding: 20px;
+    background-image: linear-gradient(
+        to bottom left,
+        rgb(202, 140, 140) 0%,
+        rgb(235, 232, 233) 50%,
+        rgb(219, 144, 147) 100% 
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    border-radius: 10px;
+    box-shadow: rgb(156, 91, 91) 0 0 3px 3px;
+    transition: .3s all;
+    pointer-events: auto;
+    height: 380px;
+}
+
+.logOut{ 
+    background-image: linear-gradient(
+        to top left,
+        #635e5d 0%,
+        #c0aead 50%,
+        #686060 100%
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin: 50px auto 10px auto;
+    transition: .3s all;
+}
+
+.logOut:hover{
+    background-image: linear-gradient(
+        to top left,
+        #ad4444 0%,
+        #da8581 50%,
+        #e46f41 100%
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+
+
+#logOutIcon{
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    box-shadow: grey 0 0 3px 3px;
+    transition: .3s all;
+}
+
+.logOut:hover #logOutIcon{
+    box-shadow: #e46f41 0 0 6px 6px;    
+}
+
+    
+.finalBG{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.finalBGActive{
+    display: block;
+}
+.finalLogOut{
+    display: none;
+}
+
+.finalLogOutActive{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: -webkit-fill-available;
+}
+
+#botFinal{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+#finalContainer{
+    width: 50%;
+    background-image: linear-gradient( to top left, #e8f0a7 0%, #fad7d7 50%, #ebd99e 100% );
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    box-shadow: #cd9589 0 0 5px 5px;
+    border-radius: 10px;
+    padding: 20px 30px 35px 30px;
+}
+
+#toplabel{
+    font-size: 25px;
+    margin: 10px;
+    background: linear-gradient( to top left, #050505 0%, #3f3d3d 50%, #302e2e 100% );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    padding-bottom: 10px;
+    border-bottom: #bbb3b3 3px solid;
+    border-radius: 5px;
+}
+
+#confirmContainer{
+    background: linear-gradient( to top left, #3ba138 0%, #3ea843 50%, #53992a 100% );
+    animation: movingGradient 2s linear infinite alternate;
+    box-shadow: #9b9291 0 0 3px 3px;
+    width: 40%;
+    padding: 10px;
+    height: 30px;
+    transition: .3s all;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+}
+
+#confirmContainer:hover{
+    box-shadow: rgb(137, 238, 123) 0 0 5px 5px;
+    background: linear-gradient(
+        to top left,
+        #399c36 0%,
+        #77c57b 50%,
+        #71b14c 100%
+    );
+    animation: movingGradient 2s linear infinite alternate; 
+    border-radius: 100px;
+}
+
+#confirm, #cancel{
+    margin: 0 auto;
+}
+
+#confirm::after{
+    content: "Confirm";
+    font-size: 25px;    
+    background: linear-gradient(
+        to top left,
+        #00ff00 0%,
+        #fdfdfd 50%,
+        #00ff00 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    border-radius: 10px;
+    margin: 0;
+    transition: .3s all;
+}
+
+#confirmContainer:hover #confirm::after{
+    content: "\2714";
+    background: linear-gradient(
+        to top left,
+        #00ff00 0%,
+        #fdfdfd 50%,
+        #00ff00 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    border-radius: 10px;
+}
+
+#cancelContainer{
+    background: linear-gradient(
+        to top left,
+        #f5580f 0%,
+        #eb7037 50%,
+        #f34703 100%
+    );
+    animation: movingGradient 2s linear infinite alternate; 
+    box-shadow: #9b9291 0 0 3px 3px;
+    height: 30px;
+    transition: .3s all;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+    transition: .3s all;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+#cancelContainer:hover{
+    box-shadow:  #ec7640 0 0 5px 5px;
+    background: linear-gradient(
+        to top left,
+        #ee6b2e 0%,
+        #e0875e 50%,
+        #cf5b2d 100%
+    );
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+
+
+#cancel::after{
+    content: "Cancel";
+    font-size: 25px;    
+    background: linear-gradient(
+        to top left,
+        #ff4800 0%,
+        #fdfdfd 50%,
+        #ff4800 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    border-radius: 10px;
+    margin: 0;
+    transition: .3s all;
+}
+
+#cancelContainer:hover #cancel::after{
+    content: "\292C";
+    font-size: 30px;    
+    background: linear-gradient(
+        to top left,
+        #ff4800 0%,
+        #fdfdfd 50%,
+        #ff4800 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+    border-radius: 10px;
+}
+
+.labelm::before{
+    font-weight: lighter;
+    content: '\002A';
+    margin: 0 5px 0 0;
+    background: linear-gradient(
+        to top left,
+        #ac2222 0%,
+        #943d3d 50%,
+        #915b5b 100%
+    );
+    font-size: 15px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}

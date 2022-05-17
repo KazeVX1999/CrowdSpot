@@ -1,0 +1,160 @@
+#NavContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 40%);
+    backdrop-filter: blur( 35px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 0px;
+    background: rgb(34 32 32);
+    max-height: 10%;
+    min-height: 10%;
+    height: 10vh;
+    border-radius: 0 0 15px 15px;
+    transition: .3s all;
+}
+
+.Logo{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    margin-left: 10px;
+    border-top: transparent 5px solid;
+    border-bottom: transparent 5px solid;
+    transition: .3s all;
+}
+
+.LogoActive{
+    border-top: #df9797 5px solid;
+    border-radius: 5px;
+}
+
+#Label{
+    transition: .3s all;
+    background: linear-gradient(
+        to top right,
+        #883c3c 0%,
+        #d95252 50%,
+        #883c3c 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 30px;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    cursor: pointer;  
+    margin: 15px;
+}
+
+
+#Label:hover{
+    color: #c76c6c;  
+    text-shadow: 0 0 5px #702121;
+}
+
+
+#RightContainer{
+    display: flex;
+}
+
+.userContainer{
+    background: rgb(98 92 92 / 15%);
+    box-shadow: 0 0px 3px 1px rgb(255 255 255 / 37%);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition: .3s all;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.userContainerActive{
+    box-shadow: 0 0px 3px 1px rgb(255 255 255 / 100%);
+
+}
+
+#username{
+    font-size: smaller;
+    transition: .3s ease-in-out;
+    background: linear-gradient(
+        to bottom right,
+        #749fb3 0%,
+        #be8282 50%,
+        #92aeb3 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: smaller;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    margin: 0 20px 15px 20px;
+    cursor: pointer;
+}
+
+
+.userContainer:hover #username{
+    color: #cce1e1;
+    text-shadow: 0 0 8px #cb6363;
+}
+
+.userContainer:hover #usernameLabel{
+    text-shadow: 0 0 5px white;
+}
+
+#usernameLabel{
+    color: #ddc5c5;
+    text-align: center;
+    font-size: smaller;
+    margin: 10px auto 5px auto;
+    transition: .3s ease-in-out;
+}
+
+#LeftContainer, #MiddleContainer{
+    display: flex;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#surveillance, #support, #about{
+    transition: .3s all;
+    background: linear-gradient(
+        to top left,
+        #883c3c 0%,
+        #7a7777 50%,
+        #883c3c 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 20px;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    cursor: pointer;  
+    margin: 20px 15px 20px 15px;
+}
+
+#surveillance:hover, #support:hover, #about:hover{
+    color: #e2e0e0;  
+    text-shadow: 0 0 5px #b95c5c;
+}
+
+
+.middleContainer{
+    align-items: center;
+    display: flex;
+    height: 100%;
+    margin-left: 10px;
+    border-top: transparent 5px solid;
+    border-bottom: transparent 5px solid;
+    transition: .3s all;
+}
+.middleContainerActive{
+    border-top: #e2e0e0 5px solid;
+    border-radius: 5px;
+}

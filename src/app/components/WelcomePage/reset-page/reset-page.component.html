@@ -1,0 +1,77 @@
+
+<div id="ResetContainerExpanded" *ngIf="showResetPage == true; else hideReset">
+    <div class="resetPageContainerCloser">
+        <h3 id="theCloserArrow" (click)="closeResetFunc()" onmouseover="expandParentContainer('resetPageContainerCloser', 'resetPageContainerCloserActive')" onmouseleave="expandParentContainer('resetPageContainerCloser', 'resetPageContainerCloserActive')"></h3>
+    </div>
+    <div id="resetPageContainer">
+        <div id="resetLabelContainer">
+            <h2 id="resetLabel" (click)="closeResetFunc()"></h2>
+        </div>
+        <div id="resetFormContainer">
+            <div (click)="closeMessage()" id="messageContainer" *ngIf='messageOK != "" || messageERR != ""'>
+                <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+                <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+            </div>
+
+            <!-- Process 1 -->
+            <form id="resetForm" *ngIf="resetProcess1Succeed == false">
+                <h3 class="ProcessTeller">PROCESS: 1 / 3</h3>
+                <h4 class="FormDescription">Please enter your Account Email that you wish to reset your password.</h4>
+                <input id="resetEmail" class="theResetInput" type="email" (keyup)="updateResetButton()" placeholder="Your Account E-mail" required>
+                <h3 (click)="resetProcess1()" class="disabledButton resetSubmitButton">Proceed</h3>
+            </form>
+
+            <!-- Process 2 -->
+            <form id="resetForm" *ngIf="resetProcess1Succeed && resetProcess2Succeed == false">
+                <h3 class="ProcessTeller">PROCESS: 2 / 3</h3>
+                <h4 class="FormDescription">Please enter the code that has been sent to your Email.</h4>
+                <input id="resetCode" class="theResetInput" type="text" (keyup)="updateResetButton()" placeholder="Validation Code" required>
+                <h4 (click)="resendCode()" id="resend">Resend Code</h4>
+                <h3 (click)="resetProcess2()" class="disabledButton resetSubmitButton">Validate</h3>
+            </form>
+
+            <!-- Process 3 -->
+            <form id="resetForm" *ngIf="resetProcess2Succeed && resetProcess3Succeed == false">
+                <h3 class="ProcessTeller">PROCESS: 3 / 3</h3>
+                <h4 class="FormDescription">Please type in your Account Email that you wish to reset your password.</h4>    
+                <div id="noteContainer">
+                    <h6 class="notes noteHead">Dear User please Note that your password are required to have:</h6>
+                    <h6 class="notes noteChild">- at least 1 Lower case Letter</h6>
+                    <h6 class="notes noteChild">- at least 1 Upper case Letter</h6>
+                    <h6 class="notes noteChild">- at least 1 Number</h6>
+                    <h6 class="notes noteChild">- at Least 1 Special Character (eg: #!@$%")</h6>
+                    <h6 class="notes noteChild">- minimum of 8 characters</h6>
+                </div>     
+                <div id="passwordResetSection1">
+                    <h3 class="lightLabel">Password</h3>
+                    <input id="passwordResetInput1" class="theResetInput" type="password" (keyup)="updateResetButton()" placeholder="New Password" pattern="(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Password must have at least 1 Number, 1 Lower Case Letter, 1 Upper Case Letter, 1 Special Character and total of 8 characters.">
+                    <img id="passwordResetIcon1" src="../../../../assets/Images/eye-open.png" alt="Show First Password Icon" onclick="ShowPassword('passwordResetInput1', 'passwordResetIcon1')"/>
+                    
+                </div>
+                <div id="passwordResetSection2">
+                    <h3 class="lightLabel">Confirmation Password</h3>
+                    <input id="passwordResetInput2" class="theResetInput" type="password" (keyup)="updateResetButton()" placeholder="Password Confirmation" pattern="(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Confirmation Password must be identical to your password.">
+                    <img id="passwordResetIcon2" src="../../../../assets/Images/eye-open.png" alt="Show Second Password Icon" onclick="ShowPassword('passwordResetInput2', 'passwordResetIcon2')"/>
+                    
+                </div>                
+                <h3 (click)="resetProcess3()" class="disabledButton resetSubmitButton">Submit</h3>
+            </form>
+
+            <!-- Complete -->
+            <div id="completeContainer" *ngIf="resetProcess3Succeed">
+                <h3 id="ProcessComplete">PROCESS: COMPLETE</h3>
+                <h4 class="FormDescription">Dear User, your account's password has been successfully changed.</h4>
+                <h4 class="FormDescription">You may now try Log In to your Account.</h4>
+                <h3 (click)="completeProcess()" class="resetSubmitButton">Go To Log In</h3>
+            </div>
+        </div>
+    </div>
+
+</div> 
+<ng-template #hideReset>
+    <div id="ResetContainerCollapse">
+        <h3 id="theResetLabel">Forgotten Password?</h3>
+        <span id="Arrow"></span>
+    </div>
+
+</ng-template>

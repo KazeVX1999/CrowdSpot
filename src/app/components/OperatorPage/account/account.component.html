@@ -1,0 +1,57 @@
+<div id="MainContainer" *ngIf="userAuthorized != undefined">
+    <div id="container">
+        <div id="messageContainer" *ngIf='messageOK != "" || messageERR != ""'>
+            <h3 *ngIf='messageOK != ""' id="messageOK">{{messageOK}}</h3>
+            <h3 *ngIf='messageERR != ""' id="messageERR">{{messageERR}}</h3>
+        </div>
+        <div id="userEmailContainer">
+            <h3 id="emailLabel">Account User</h3>
+            <h3 id="emailuser">{{userAuthorized?.userEmail}}</h3>
+        </div>
+        <div id="changePasswordContainer">
+            <div class="clickToShow" (click)="clickUpdateChangePasswordContainer()">
+                <h3 class="clickLabel">Change Password ?</h3>
+            </div>
+            <form class="changePassword">
+                <div id="currentPasswordContainer">
+                    <h3 class="label labelm">Your current password</h3>
+                    <input id="currentPassword" class="inputChangePassword" type="password" (keyup)="updateSubmitButton()" placeholder="Your current Password" required>
+                    <img id="passwordCurrentIcon" src="../../../../assets/Images/eye-open.png" alt="Show First Password Icon" onclick="ShowPassword('currentPassword', 'passwordCurrentIcon')"/>
+                </div>
+                <div id="passwordSignUpSection1">
+                    <h3 class="lightLabel labelm">New Password</h3>
+                    <input id="password1" class="inputChangePassword" type="password" (keyup)="updateSubmitButton()" placeholder="New Password" pattern="(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Password must have at least 1 Number, 1 Lower Case Letter, 1 Upper Case Letter, 1 Special Character and total of 8 characters.">
+                    <img id="passwordIcon1" src="../../../../assets/Images/eye-open.png" alt="Show First Password Icon" onclick="ShowPassword('password1', 'passwordIcon1')"/>
+                    
+                </div>
+                <div id="passwordSignUpSection2">
+                    <h3 class="lightLabel labelm">Confirmation New Password</h3>
+                    <input id="password2" class="inputChangePassword" type="password" (keyup)="updateSubmitButton()" placeholder="New Password Confirmation" pattern="(?=.*\W)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Confirmation Password must be identical to your password.">
+                    <img id="passwordIcon2" src="../../../../assets/Images/eye-open.png" alt="Show Second Password Icon" onclick="ShowPassword('password2', 'passwordIcon2')"/>
+                </div>
+                <h3 (click)="changePasswordAPI()" class="submitButton disabledButton">- CHANGE PASSWORD -</h3>
+            </form>
+
+        </div>
+        <div class="logOut">
+            <img id="logOutIcon" (click)="showLogOutFinalContainer()" src="../../../../assets/Images/doorIcon.png" alt="LogOut Icon">
+        </div>
+        <div class="finalBG" (click)="closeLogOutFinalContainer()"></div>
+        <div class="finalLogOut">
+            <div id="finalContainer">
+                <div id="topFinal">
+                    <h3 id="toplabel">Confirm to Log Out ?</h3>
+                </div>
+                <div id="botFinal">
+                    <div id="confirmContainer" routerLink="/" (click)="logOut()">
+                        <h3 id="confirm"></h3>
+                    </div>
+                    <div id="cancelContainer" (click)="closeLogOutFinalContainer()">
+                        <h3 id="cancel"></h3>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

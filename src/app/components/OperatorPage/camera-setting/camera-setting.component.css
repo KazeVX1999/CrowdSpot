@@ -1,0 +1,984 @@
+#MainContainer{
+    background-color: #363434;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px 0 rgb(0 0 0 / 40%);
+    min-height: 90vh;
+    height: auto;
+}
+
+#back{
+    margin: 0 0 0 -15px;
+    padding: 18px 0 0 10px;
+    background: linear-gradient(
+        to top left,
+        #3c6f8d 0%,
+        #76aada 50%,
+        #477097 100%
+    );
+    text-shadow: #76bada 0 0 3px;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    transition: .3s all;
+    font-size: 15px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+#back:hover{
+    margin: 0;
+    background: linear-gradient(
+        to top left,
+        #588394 0%,
+        #a5d8f5 50%,
+        #6899a5 100%
+    );
+    -webkit-background-clip: text;
+    text-shadow: #c9e6f7 0 0 5px;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+}
+
+#back::before{
+    opacity: 0;
+    content: '\2190';
+    background: linear-gradient(
+        to top left,
+        #3c6d8d 0%,
+        #76beda 50%,
+        #477797 100%
+    );
+    text-shadow: #76bada 0 0 5px;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    transition: .3s all;
+    margin-right: 5px;
+}
+
+#back:hover::before{
+    opacity: 1;
+    background: linear-gradient(
+        to top left,
+        #945858 0%,
+        #f5a5a5 50%,
+        #a56868 100%
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    text-shadow: #e2b8b8 0 0 3px;
+}
+
+#messageContainer, #messageContainerED{
+    text-align: center;
+    background-image: linear-gradient( 
+        to bottom right, 
+        rgb(255, 255, 255) 0%, 
+        rgb(216, 210, 209) 50%, 
+        rgb(255 255 255) 100%);
+    background-size: 200% 200%;
+    animation: movingGradient 3s linear infinite alternate;
+    border-radius: 15px;
+    box-shadow: grey 0 2px 5px 3px;
+    width: 90%;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+#messageContainer{
+    margin: 20px auto 20px auto;
+}
+
+#messageContainerED{
+    margin: 20px auto -55px auto;
+}
+
+#messageContainer:hover, #messageContainerED:hover{
+    opacity: 0.7;
+}
+
+#messageERR, #messageERRDEL, #messageERRED{
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #df4b31 0%,
+        #d93f07 50%,
+        #aa2007 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    word-break: break-all;
+}
+
+#messageOK, #messageOKED{
+    font-size: 20px;
+    padding: 10px 5px;
+    background: linear-gradient(
+        to top left,
+        #2b9e14 0%,
+        #3ae951 50%,
+        #067a23 100%
+    );
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;
+    word-break: break-all;
+    margin: 0 auto;
+}
+
+
+.cameraTopContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px auto;
+    width: 100%;  
+    overflow: hidden;
+    transition: .3s all;
+    margin: 10px auto;
+    border-radius: 5px; 
+    background-color: #bdbfd7;
+    padding-bottom: 20px;
+    margin: 10px auto;
+    box-shadow: rgb(129, 154, 182) 0 0 3px 3px;
+}
+
+
+#cameraNameLabel, #cameraDescriptionLabel, .label{
+    font-size: 20px;
+    font-family: 'Arial Nova';
+    font-weight: bold;
+    text-align: center;
+    margin: 15px auto 0 auto;
+} 
+
+#cameraName{
+    border: 0;
+    font-size: 18px;
+    font-family: 'Arial Nova';
+    font-weight: bold;
+    transition: .3s all;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 8px;
+    border-bottom: 3px solid grey;
+}
+
+#cameraName::placeholder{
+    color: rgb(155, 70, 70);
+}
+
+#cameraDesc::placeholder{
+    color: rgb(53, 48, 48);
+}
+
+#cameraName, #cameraDesc{
+    width: 90%;
+}
+
+#nameLine{
+    height: 3px;
+    width: 0;
+    transition: .3s all;
+}
+
+
+#cameraName:hover ~ #nameLine, #cameraName:focus-visible ~ #nameLine{
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(102, 118, 153, 0.9) 0%,
+        rgba(173, 194, 221, 0.9) 50%,
+        rgba(113, 145, 163, 0.9) 100% 
+    );
+    border-radius: 5px;
+    transition: .3s all;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    width: 91%;
+    box-shadow: rgb(83, 98, 131) 0 0 5px 5px;
+}
+
+
+#cameraDesc{
+    border: 0;
+    border-radius: 5px 5px 0 5px;
+    font-size: 17px;
+    background-color: rgba(129, 139, 171, 0.8);
+    font-family: 'Arial Nova';
+    font-weight: bold;
+    margin-top: 5px;
+    transition: .3s all;
+    padding: 10px;
+    text-align: center;
+}
+
+#cameraName:hover, #cameraName:focus-visible{
+    outline: 0;
+    border-bottom: 3px solid transparent;
+}
+
+#cameraDesc:hover, #cameraDesc:focus-visible{
+    outline: 0;
+    box-shadow: rgb(83, 94, 131) 0 0 3px 3px;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(102, 126, 153, 0.9) 0%,
+        rgba(173, 195, 221, 0.9) 50%,
+        rgba(113, 136, 163, 0.9) 100% 
+    );
+    border-radius: 5px;
+    transition: .3s all;
+    color: black;
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;  
+}
+
+#buttonContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.saveContainer, .saveContainer2, .removeContainer{
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    cursor: pointer;
+}
+
+.saveContainer{
+    border-radius: 10px;
+    transition: .3s all;
+    background-color: rgb(172, 194, 219);
+    box-shadow: rgb(88, 84, 84) 0 0 3px 3px;
+}
+
+.saveContainer2{
+    border-radius: 10px;
+    transition: .3s all;
+    background-color: rgb(219, 172, 172);
+    box-shadow: rgb(88, 84, 84) 0 0 3px 3px;
+}
+
+
+.saveContainer:hover{
+    box-shadow: rgb(129, 168, 194) 0 0 5px 5px;
+}
+
+.saveContainer2:hover{
+    box-shadow: rgb(194, 129, 129) 0 0 5px 5px;
+}
+
+.clearContainer:hover{
+    box-shadow: rgb(226, 119, 111) 0 0 5px 5px;
+}
+
+.removeContainer{
+    background-color: rgb(185, 49, 49);
+    border-radius: 10px;
+    transition: .3s all;
+    box-shadow: rgb(88, 84, 84) 0 0 3px 3px;
+}
+
+.removeContainer:hover{
+    box-shadow: rgb(167, 93, 93) 0 0 5px 5px;
+}
+
+#saveLabel2{
+    font-size: 18px;
+}
+
+
+#saveLabel, #saveLabel2, #removeLabel{
+    margin: 0 0 0 10px;
+    color: rgb(43, 41, 41);
+}
+
+#clearLabel::before{
+    content: "\292C";
+    margin-right: 10px;
+}
+
+.clearContainer:hover #clearLabel{
+    color: rgb(233, 215, 215);
+}
+
+.saveWP, .saveWP2, .removeWP{
+    background-color: rgb(43, 41, 41);
+}
+
+#saveIcon, #saveIcon2, .saveWP , .saveWP2{
+    width: 20px;
+    height: 20px;
+}
+
+
+.removeWP, #removeIcon{
+    width: 30px;
+    height: 30px;
+}
+
+.saveContainer:hover #saveLabel{
+    color: whitesmoke;
+    text-shadow: rgb(129, 159, 194) 0 0 5px;
+}
+
+.saveContainer2:hover #saveLabel2{
+    color: whitesmoke;
+    text-shadow: rgb(129, 159, 194) 0 0 5px;
+}
+
+.saveContainer:hover .saveWP2{
+    background-color: whitesmoke;
+}
+
+.saveContainer2:hover .saveWP2{
+    background-color: whitesmoke;
+}
+
+.removeContainer:hover #removeLabel{
+    color: whitesmoke;
+    text-shadow: rgb(93, 137, 167) 0 0 5px;
+}
+
+.removeContainer:hover .removeWP{
+    background-color: whitesmoke;
+}
+
+.disabledButton{
+    pointer-events: none;
+    cursor: default;
+    background: rgb(107, 99, 99);
+    opacity: 0.8;
+}
+
+.disabledWP{
+    opacity: 0;
+    margin-right: -25px;
+}
+
+.mustFill::before{
+    font-weight: lighter;
+    content: '\002A';
+    margin: 0 5px 0 0;
+    background: linear-gradient(
+        to top left,
+        #2263ac 0%,
+        #3d5494 50%,
+        #5b7391 100%
+    );
+    font-size: 17px;
+    text-align: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate; 
+}
+
+.counter{
+    margin: 0;
+    color: rgba(10, 10, 10, 0.7);
+}
+
+#codeContainer{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+}
+
+#cameraCode{
+    border: 0;
+    background-color: #e2dae9;
+    font-size: 17px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    font-family: 'Colus';
+    text-shadow: 0 0px 2px #86a8cf;
+    color: #32323a;
+    box-shadow: 0 0 3px 3px #ada4a4;
+    transition: .3s all;
+}
+
+#cameraCode:hover, #cameraCode:focus-visible{
+    box-shadow: 0 0 5px 5px #99a8df;
+    outline: 0;
+}
+
+#copyIcon{
+    width: 30px;
+    height: 30px;
+    background-color: #bd8585;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: .3s all;
+    box-shadow: rgb(211, 186, 186) 0 0 3px 3px;
+}
+
+#copyIcon:hover{
+    background-color: #ce9c9c;
+    box-shadow: rgb(175, 122, 122) 0 0 3px 3px;
+}
+
+#refreshIcon{
+    width: 25px;
+    height: 25px;
+    background-color: #60b3f7;
+    padding: 2.5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: .3s all;
+    box-shadow: rgb(186, 205, 211) 0 0 3px 3px;
+}
+
+#refreshIcon:hover{
+    background-color: #86bfe6;
+    box-shadow: rgb(102, 174, 192) 0 0 3px 3px;
+}
+
+.label{
+    font-family: 'Arial Nova';
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.disabled{
+    background-color: #757575;
+    pointer-events: none;
+    cursor: default;
+}
+
+.DelPopUpBG{
+    display: none;
+    position: absolute;
+    top: calc(10vh + 20px);
+    left: 50%;
+    height: 90vh;
+    width: 100%;
+    transform: translate(-50%, 0);
+    background-color: rgb(16 15 15 / 90%); 
+}
+
+.DelPopUpBGActive{
+    display: flex;
+}
+
+.DelPopUpContainer{
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(190, 207, 224, 0.9) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(213, 232, 241, 0.9) 100% 
+    );
+    box-shadow: rgb(154, 176, 187) 0 0 3px 3px;
+    border-radius: 5px;
+    transition: .3s all;
+    background-size: 200% 200%;
+    animation: movingGradient 2s linear infinite alternate;  
+    padding: 10px;
+    width: 50%;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+}
+
+.DelPopUpContainerActive{
+    display: flex;
+}
+
+#titleContainer{
+    border-bottom: 3px solid #d5c2c2;
+    width: 90%;
+}
+
+#title{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    transition: .3s all;
+    cursor: pointer;
+}
+
+#title::after{
+    content: "Delete Camera \292C";
+    transition: .3s all;
+}
+
+#title:hover::after{
+    content: "CLOSE \292C";
+    color: rgb(255, 255, 255);
+    text-shadow: #ca8080 0 0 5px;
+    transition: .3s all;
+}
+
+.middleLabel{
+    color: black;
+}
+
+#middleContainer{
+    border-bottom: 3px solid #d5c2c2;
+    width: 90%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#deleteConfirmLabel{
+    transition: .3s all;
+    font-size: 20px;
+    color: #000000;
+    margin: 0 0 0 5px;
+}
+
+#deleteConfirmLabel:hover{
+    color: rgb(255, 255, 255);
+    text-shadow: #ca8080 0 0 5px;    
+}
+
+#deleteCancelLabel{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    transition: .3s all;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+#deleteCancelLabel::before{
+    content: "\292C";
+    transition: .3s all;
+}
+
+#deleteCancelLabel::after{
+    content: "CANCEL";
+    transition: .3s all;
+    margin-left: 5px;
+}
+
+#deleteCancelContainer{
+    width: 35%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d6a5a5;
+    cursor: pointer;
+    box-shadow: #363636 0 0 3px 3px;
+    transition: .3s all;
+}
+
+#deleteCancelContainer:hover{
+    box-shadow: #bb9f9f 0 0 3px 3px;
+}
+
+#deleteCancelContainer:hover #deleteCancelLabel::before{
+    color: rgb(255, 255, 255);
+    text-shadow: #ca8080 0 0 5px;
+    transition: .3s all;
+}
+
+#deleteCancelContainer:hover #deleteCancelLabel::after{
+    opacity: 0;
+    display: none;
+}
+
+#bottomContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+}
+
+#deleteConfirmIcon{
+    width: 30px;
+    height: 30px;
+    transition: .3s all;
+}
+
+#deleteConfirmContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #b93131;
+    cursor: pointer;
+    box-shadow: #363636 0 0 3px 3px;
+    transition: .3s all;
+    width: 35%;
+}
+
+#deleteConfirmIconBG{
+    transition: .3s all;
+    width: 30px;
+    height: 30px;
+}
+
+#deleteConfirmContainer:hover{
+    box-shadow: #9c6e6e 0 0 3px 3px;
+}
+
+#deleteConfirmContainer:hover #deleteConfirmIconBG{
+    left: 0%;
+    position: relative;
+}
+
+#deleteConfirmContainer:hover #deleteConfirmLabel{
+    opacity: 0;
+    display: none;
+}
+
+
+.switch {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    background: #5b89bd;
+    transition: all 0.2s ease;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.switch span {
+    width: 20px;
+    height: 4px;
+    margin: 0 10px;
+    background: #fff;
+    display: block;
+    transform: rotate(-45deg);
+    transition: all 0.2s ease;
+}
+
+.switch span:after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 12px;
+    margin-top: -8px;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+#Online, #Offline{
+    pointer-events: none;
+}
+
+.switch label {
+    cursor: pointer;
+    color: rgba(0,0,0,0.2);
+    width: 60px;
+    line-height: 50px;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+#Offline:checked ~ .switch {
+    background: #eb4f37;
+}
+#Offline:checked ~ .switch span {
+    background: #fff;
+    margin-left: 8px;
+}
+#Offline:checked ~ .switch span:after {
+    background: #fff;
+    height: 20px;
+    margin-top: -8px;
+    margin-left: 8px;
+}
+#Online:checked ~ .switch label[for=Online] {
+    color: #fff;
+}
+#Offline:checked ~ .switch label[for=Offline] {
+    color: #fff;
+}
+
+.PointMainContainer {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 10px 30px 10px;
+    margin: 0 auto;
+}
+
+.theToggler{
+    border-radius: 10px;
+    background-image: linear-gradient( to bottom right, #c97f7f 0%, #edcdcd 50%, #99adcb 100% );
+    width: 65%;
+    animation: movingGradient 5s linear infinite alternate;
+    background-size: 200% 200%;
+    cursor: pointer;
+    text-align: center;
+    transition: .3s all;
+    box-shadow: 0 0 3px 3px #877878;
+}
+
+
+.theToggler:hover{
+    box-shadow: 0 0 5px 5px #9c6060;
+}
+
+.theTogglerActive{
+    box-shadow: 0 0 5px 5px #9c6060;
+}
+
+.theToggler:hover .theTogglerLabel{
+    color: white;
+    text-shadow: 0 0 6px #933d3d;
+}
+
+.theTogglerLabel{
+    margin: 10px auto;
+    transition: .3s all;
+    text-shadow: 0 0 6px #645454;
+}
+
+.theTogglerLabelActive{
+    color: white;
+    text-shadow: 0 0 6px #933d3d;
+}
+
+.EditorContainer{
+    height: 0;
+    overflow: hidden;
+    transition: .3s all;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.editor{
+    transition: .3s all;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#editorTop{
+    transition: .3s all;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#editorBot{
+    transition: .3s all;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin: 15px;
+}
+
+.editor h3{
+    font-size: 16px;
+    font-family: 'Arial Nova';
+    margin: 0 auto;
+}
+
+.EditorContainerActive{
+    height: fit-content;
+    overflow: visible;
+}
+
+#LeftEditor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    margin-right: 5px;
+    width: 180px;
+}
+
+#MiddleEditor{
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+#RightEditor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    margin-left: 5px;
+    width: 200px;
+}
+
+
+.editorLabel, .markLabel{
+    margin: 0;
+    transition: .3s all;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.leftEdit{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 7px;
+    box-shadow: rgb(88 84 84) 0 0 3px 3px;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.clearContainer{
+    background-color: rgb(231 86 76);
+}
+
+
+.bg{
+    width: 23px;
+    height: 23px;
+    background-color: black;
+    margin-left: 10px;
+    transition: .3s all;
+}
+
+.green{
+    background-color: #5cc25c;
+}
+
+.red{
+    background-color: #9e5050;
+}
+
+
+#theStream{
+    width: 640px;
+    height: 480px;
+    pointer-events: none;
+}
+
+.leftEdit:hover, .leftActive{
+    box-shadow: 0 0 3px 3px #ffffff;
+}
+
+.green1:hover #greenLine, .red1:hover #redLine, .green2:hover #greenPencil, .red2:hover #redPencil, .leftImageActive {
+    background-color: white;
+}
+
+.green1:hover #label1, .red1:hover #label2,.green2:hover #label3, .red2:hover #label4, .leftLabelActive{
+    color: white;
+}
+
+.rightEdit1, .rightEdit2{
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px auto;
+    transition: .3s all;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 1px #1e1c1c;
+    text-align: center;
+}
+
+.markLabel{
+    transition: .3s all;
+}
+
+.rightEdit1{
+    background-image: linear-gradient( to bottom right, #d4a9a9 0%, #edcdcd 50%, #dbc4c4 100% );
+    animation: movingGradient 5s linear infinite alternate;
+    background-size: 200% 200%;
+}
+
+.rightEdit2{
+    background-image: linear-gradient( to bottom right, #a9d1d4 0%, #edcdcd 50%, #c4d6db 100% );
+    animation: movingGradient 5s linear infinite alternate;
+    background-size: 200% 200%;
+}
+
+.showMarks{
+    margin-bottom: 10px;
+}
+
+.showBackground{
+    margin-bottom: 10px;
+}
+
+.rightEdit1:hover, .right1Active{
+    box-shadow: 0 0 3px 3px #bd8686;    
+}
+
+.rightEdit2:hover, .right2Active{
+    box-shadow: 0 0 3px 3px #b1c0d4;
+}
+
+
+#rightTop{
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid white;
+}
+
+.showMarks:hover .label6, .hideMarks:hover .label7, .showBackground:hover .label8, .hideBackground:hover .label9, .rightLabelActive{
+    color: white;
+}
+
+.theStreamClassActive{
+    opacity: 1;
+    transition: .3s;
+}
+
+.theStreamClass{
+    opacity: 0;
+}
+
+.canvasDisabled{
+    display: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+.canvasActive{
+    position: absolute;
+    z-index: 1;
+    border: 2px solid #7e6e6e;
+    box-shadow: 0 0 2px 2px #1a1a1a;
+    display: block;
+    opacity: 1;
+}

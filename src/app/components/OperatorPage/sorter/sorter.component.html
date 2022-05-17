@@ -1,0 +1,40 @@
+<div id="SortMainContainer">
+    <div id="LabelContainer">
+        <h6 *ngIf="sortLabel != undefined; else saved">{{sortLabel}}</h6>
+        <ng-template #saved>
+            <h6>{{sortSave}}</h6>
+        </ng-template>
+    </div>
+
+
+    <div id="SortContainer">
+        <div id="AZContainer" class="sortChoice">
+            <img (click)="clickSort('1')" (mouseenter)="sortHoverIN('1')" (mouseleave)="sortHoverOUT()" src="../../../../assets/Images/AZ.png" alt="A-Z Icon">
+        </div>
+        
+        <div id="ZAContainer" class="sortChoice">
+            <img (click)="clickSort('2')" (mouseenter)="sortHoverIN('2')" (mouseleave)="sortHoverOUT()" src="../../../../assets/Images/ZA.png" alt="Z-A Icon">        
+        </div>  
+
+        <div id="LessPeopleContainer" class="sortChoice" *ngIf="type == 1; else online">
+            <img (click)="clickSort('3')" (mouseenter)="sortHoverIN('3')" (mouseleave)="sortHoverOUT()" src="../../../../assets/Images/humanAscendingIcon.png" alt="Ascending Person Icon">        
+        </div>
+        <ng-template #online>
+            <div id="OnlineContainer" class="sortChoice" (click)="clickSort('3')" (mouseenter)="sortHoverIN('3')" (mouseleave)="sortHoverOUT()">
+                <div id="online"></div>
+            </div>
+        </ng-template>
+
+        <div id="MorePeopleContainer" class="sortChoice" *ngIf="type == 1; else offline">
+            <img (click)="clickSort('4')" (mouseenter)="sortHoverIN('4')" (mouseleave)="sortHoverOUT()" src="../../../../assets/Images/humanDescendingIcon.png" alt="Descending Person Icon">        
+        </div> 
+        <ng-template #offline>
+            <div id="OfflineContainer" class="sortChoice" (click)="clickSort('4')" (mouseenter)="sortHoverIN('4')" (mouseleave)="sortHoverOUT()">
+                <div id="offline"></div>
+            </div>
+        </ng-template>   
+        
+       
+        
+    </div>
+</div>

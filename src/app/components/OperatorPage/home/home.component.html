@@ -1,0 +1,85 @@
+<div id="MainContainer" *ngIf="userAuthorized != undefined">
+    <h3 id="Label">CrowdSpot</h3>
+    <div id="emptyLocationContainer" *ngIf="userLocations?.length === 0; else surveillances">
+        <div id="emptyBG">
+            <h3 id="emptyLabel">You have no Location under Surveillance. Try add a new one at Surveillance Page.</h3>
+            <h3 id="goSurveillance" routerLink="/SurveillanceOverview/0">Go To Surveillance Page</h3>
+        </div>
+    </div>
+    <ng-template #surveillances>
+        <div id="topContainer">
+            <div id="line1"></div>
+            <app-sorter id="sorterComp" [type]="1" (sortEmitter)="refreshLocations()"></app-sorter>
+            <div id="line2"></div>
+        </div>
+
+        <div class="SurveillanceFatherContainer">
+            <div class="surveillanceMainContainer">
+                <!-- Code Adapted from T. Templier, 2016; tobias47n9e, 2019; Angular.io by Google, n.d;-->
+                <div *ngFor="let surveillance of userLocations; let i = index;">
+                    <!-- End of Code Adapted -->
+                    <div class="surveillanceContainer" (mouseenter)="SurveillanceDataLabelAnimation(i, true)" (mouseleave)="SurveillanceDataLabelAnimation(i, false)" (click)="showGraph(surveillance[0].locationID)">
+                        <div class="mainLeft">
+                            <div class="surveillanceTopContainer">
+                                <div class="surveillanceNameContainer">
+                                    <h3 class="surveillanceName">{{surveillance[0].locationName}}</h3>
+                                </div>
+                                <div class="TopRightContainer">
+                                    <div class="TopRight1Container">
+                                        <img class="topRight1Image" src="../../../../assets/Images/cctvIcon.png" alt="Camera Icon">
+                                        <h3 class="cameraCounts">{{surveillance[1]}} / {{surveillance[2]}}</h3>
+                                    </div>
+                                    <div class="TopRight2Container">
+                                        <img class="topRight2Image" src="../../../../assets/Images/humanIcon.png" alt="People Icon">
+                                        <h3 class="peopleCounts">{{surveillance[3]}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="surveillanceBottomContainer">
+                                <h3 class="surveillanceDescription">{{surveillance[0].locationDescription}}</h3>
+                                
+                            </div>
+                        </div>
+                        <div class="mainRight" [routerLink]="['/Surveillance/'+surveillance[0].locationID+'/0']">
+                            <div class="settingContainer">
+                                <div class="settingBG">
+                                    <img src="../../../../assets/Images/settingIcon.png" alt="Setting Icon">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="GraphContainerDisabled">
+                <canvas class="graphDisabled" id="theGraph"></canvas>
+                <div class="graphDataDisabled">
+                    <table>
+                        <tr>
+                            <th>
+                                <h6 class="theRecords">Time</h6>
+                            </th>
+                            <th>
+                                <h6 class="theRecords">People Count</h6>
+                            </th>
+                        </tr>
+                        <tr *ngFor="let records of locationRecordExtraction[1]; let i = index;">
+                            <th>
+                                <h6 class="theRecords">{{records.timeRecorded.split("T")[1].split(".")[0]}}</h6>
+                            </th>
+                            <th>
+                                <h6 class="theRecords">{{records.PeopleCount}}</h6>
+                            </th>
+                        </tr>
+                    </table>                    
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+
+
+
+</div>
+
